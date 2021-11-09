@@ -6,32 +6,34 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
+import { SearchBar } from "react-native-elements";
+
 import { getAllWords, getLargeWordsList } from "../util/utils";
 const Dictionary = () => {
   const [words, setWords] = useState(getAllWords());
   const [dataSource, setDataSource] = useState(getLargeWordsList());
+  const [search, setSearch] = useState();
+  const [filteredList, setFilteredList] = useState(dataSource);
   const [offset, setOffset] = useState(10);
-  //   useEffect(() => {
-  //     console.log(testPrint());
-  //   });
-  //TODO: Switch to flat list, and switch words to new 50000 words dict.
-  //   const footer = () => {
-
-  //   }
+  useEffect(() => {
+    searchFilter();
+  }, [search, offset]);
   const getMore = () => {
     setOffset(offset + 10);
   };
   const footer = () => {
     return (
-      <View style={styles.footer}>
-        <TouchableOpacity
-          style={styles.btn}
-          activeOpacity={0.8}
-          onPress={getMore}
-        >
-          <Text style={{ color: "white", fontSize: 15 }}>Load More</Text>
-        </TouchableOpacity>
-      </View>
+      filteredList.length > 10 && (
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={styles.btn}
+            activeOpacity={0.8}
+            onPress={getMore}
+          >
+            <Text style={{ color: "white", fontSize: 15 }}>Load More</Text>
+          </TouchableOpacity>
+        </View>
+      )
     );
   };
   const item = ({ item }) => {
@@ -54,10 +56,31 @@ const Dictionary = () => {
       />
     );
   };
+
+  const searchFilter = () => {
+    if (!search || search === "") {
+      setFilteredList(dataSource);
+      return;
+    }
+    let keyword = search.toLowerCase();
+    let res = dataSource.filter((item) =>
+      item.word.toLowerCase().includes(keyword)
+    );
+    setFilteredList([...res]);
+    return;
+  };
   return (
     <View>
+      <SearchBar
+        placeholder="Search here..."
+        onChangeText={(e) => {
+          setSearch(e);
+          setOffset(10);
+        }}
+        value={search}
+      />
       <FlatList
-        data={dataSource.slice(0, offset)}
+        data={filteredList.slice(0, offset)}
         keyExtractor={(item, index) => index.toString()}
         ItemSeparatorComponent={itemSeperator}
         enableEmptySections={true}
