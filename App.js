@@ -5,6 +5,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
+import Dictionary from "./components/Dictionary";
+import "./util/global.js";
+
+/* TODO:
+    Add dictionary page.
+    Format Home screen.
+    Figure out linear gradient if possible.
+*/
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -13,6 +22,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Homescreen} />
         <Stack.Screen name="Acquisition" component={Acquisition} />
+        <Stack.Screen name="Dictionary" component={Dictionary} />
       </Stack.Navigator>
     </NavigationContainer>
   );

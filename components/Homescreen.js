@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-
 const Homescreen = ({ navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Button
-        title="Acq"
+        title="Alphabet Acquisition"
         onPress={() => {
           navigation.navigate("Acquisition");
+        }}
+      />
+      <Text>Highscore: {global.acq_highscore}</Text>
+      <Button
+        title="Dictionary"
+        onPress={() => {
+          navigation.navigate("Dictionary");
         }}
       />
     </View>

@@ -29,6 +29,10 @@ const Acquisition = () => {
       setQuestion({ ...question, q: [...question.word] });
       setScore(score + 1);
       setIsWin(true);
+      if (score >= global.acq_highscore) {
+        global.acq_highscore = score;
+      }
+      console.log(global.acq_highscore);
       // TODO: Pop-up win window or win text, add score, show "Next Question Button" and on click, reset question.;
     }
   };
@@ -112,7 +116,7 @@ const Acquisition = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F57F11",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
