@@ -36,7 +36,7 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
-export const testPrint = function () {
+export const getLargeWordsList = function () {
   const wordsWithDef = [];
   Object.keys(dictionary).forEach((key) => {
     let obj = dictionary[key]["MEANINGS"];
