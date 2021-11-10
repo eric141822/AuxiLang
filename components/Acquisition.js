@@ -4,23 +4,26 @@ import {
   Text,
   View,
   TouchableHighlight,
+  TouchableOpacity,
   Button,
 } from "react-native";
-import { randomWord, questionAcq } from "../util/utils";
+import { randomWord, questionAcq, getQuestionAcq } from "../util/utils";
 /* 
     TODO: 
-    Add onPress for keyboard to reflect guesses. DONE
     presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
     Global js file in util folder for mode switching (keep track of error words or not).
-    
+    Switch word list and question to 50000 words data. (DONE)
+    Maybe filter the word list to just include around 5000 entry level vocab?
 */
 const Acquisition = () => {
-  const [question, setQuestion] = useState(questionAcq(randomWord()));
+  const [question, setQuestion] = useState(getQuestionAcq());
   const [usedLetters, setUsedLetters] = useState([]);
   const [isWin, setIsWin] = useState(false);
   const [score, setScore] = useState(0);
+  //   const [q, setQ] = useState(getQuestionAcq());
   useEffect(() => {
-    // console.log(question);
+    //   console.log(q);
+    console.log(question);
   });
 
   const keyPress = function (letter) {
@@ -40,7 +43,8 @@ const Acquisition = () => {
   const nextQuestion = function () {
     setIsWin(false);
     // TODO: Modify JSON so that no repeating word would show up, global val to store high score.
-    setQuestion(questionAcq(randomWord()));
+    // setQuestion(questionAcq(randomWord()));
+    setQuestion(getQuestionAcq());
     setUsedLetters([]);
   };
 
@@ -98,16 +102,18 @@ const Acquisition = () => {
           );
         })}
       </View>
-      {isWin && <Text>You got it!</Text>}
       {isWin && (
-        <Button
-          title="Next Question"
-          onPress={() => {
-            nextQuestion();
-          }}
-        />
+        <View style={styles.winBox}>
+          <Text style={styles.winText}>You got it!</Text>
+          <Button
+            title="Next Question"
+            onPress={() => {
+              nextQuestion();
+            }}
+          />
+        </View>
       )}
-      <Text>Hint: {question.hint}</Text>
+      <Text style={styles.hintText}>Hint: {question.hint}</Text>
       {renderKeyBoard()}
     </View>
   );
@@ -149,7 +155,7 @@ const styles = StyleSheet.create({
     margin: 2,
   },
   usedKey: {
-    color: "grey",
+    color: "lightgrey",
     fontSize: 20,
     width: 20,
     justifyContent: "center",
@@ -161,6 +167,18 @@ const styles = StyleSheet.create({
     width: 20,
     justifyContent: "center",
     alignItems: "center",
+  },
+  winBox: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  winText: {
+    fontSize: 30,
+    fontWeight: "bold",
+  },
+  hintText: {
+    fontStyle: "italic",
   },
 });
 

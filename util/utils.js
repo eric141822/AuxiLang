@@ -41,23 +41,24 @@ export const getLargeWordsList = function () {
   Object.keys(dictionary).forEach((key) => {
     let obj = dictionary[key]["MEANINGS"];
     if (obj && !isEmpty(obj)) {
-      // console.log(key, obj[Object.keys(obj)[0]]);
       let arr = obj[Object.keys(obj)[0]];
       let type = arr[0];
       let def = arr[1];
-      //   console.log(key, type, def);
       wordsWithDef.push({ word: key, type: type, definition: def });
     }
   });
   return wordsWithDef;
-  //   for (const word of Object.keys(dictionary)) {
-  //     console.log(word);
-  //     if (word["MEANINGS"]) {
-  //       let arr = word["MEANINGS"][Object.keys(word["MEANINGS"][0])];
-  //       let type = arr[0];
-  //       let def = arr[1];
-  //       console.log(type, def);
-  //     }
-  //     break;
-  //   }
+};
+
+let largeList = getLargeWordsList();
+
+export const getQuestionAcq = function () {
+  let item = largeList[(Math.random() * largeList.length) | 0];
+  let word = item.word.toUpperCase().split("");
+  let hint = item.type + ", " + item.definition;
+  let idx = (Math.random() * item.word.length) | 0;
+  let answer = word[idx];
+  let q = word.slice(0);
+  q[idx] = "-";
+  return { hint: hint, word: word, answer: answer, q: q };
 };
