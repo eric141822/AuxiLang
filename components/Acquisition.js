@@ -8,6 +8,8 @@ import {
   Button,
 } from "react-native";
 import { randomWord, questionAcq, getQuestionAcq } from "../util/utils";
+import Modal from "react-native-modal";
+
 /* 
     TODO: 
     presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
@@ -46,6 +48,27 @@ const Acquisition = () => {
     // setQuestion(questionAcq(randomWord()));
     setQuestion(getQuestionAcq());
     setUsedLetters([]);
+  };
+
+  const renderModal = function () {
+    return (
+      <View>
+        <Modal isVisible={isWin}>
+          <View style={styles.winBox}>
+            <Text style={styles.winText}>You got it!</Text>
+            <Text style={{ marginBottom: 10 }}>
+              The answer is {question.word.join("")}
+            </Text>
+            <Button
+              title="Next Question"
+              onPress={() => {
+                nextQuestion();
+              }}
+            />
+          </View>
+        </Modal>
+      </View>
+    );
   };
 
   const renderKeyBoard = function () {
@@ -102,17 +125,7 @@ const Acquisition = () => {
           );
         })}
       </View>
-      {isWin && (
-        <View style={styles.winBox}>
-          <Text style={styles.winText}>You got it!</Text>
-          <Button
-            title="Next Question"
-            onPress={() => {
-              nextQuestion();
-            }}
-          />
-        </View>
-      )}
+      {renderModal()}
       <Text style={styles.hintText}>Hint: {question.hint}</Text>
       {renderKeyBoard()}
     </View>
@@ -169,12 +182,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   winBox: {
-    flex: 1,
+    display: "flex",
+    height: "auto",
+    borderRadius: 5,
+    padding: 10,
     alignItems: "center",
     justifyContent: "space-around",
+    backgroundColor: "#fff",
   },
   winText: {
     fontSize: 30,
+    marginBottom: 15,
     fontWeight: "bold",
   },
   hintText: {
