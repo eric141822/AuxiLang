@@ -38,13 +38,20 @@ function isEmpty(obj) {
 
 export const getLargeWordsList = function () {
   const wordsWithDef = [];
+  let counter = 0;
   Object.keys(dictionary).forEach((key) => {
     let obj = dictionary[key]["MEANINGS"];
     if (obj && !isEmpty(obj)) {
       let arr = obj[Object.keys(obj)[0]];
       let type = arr[0];
       let def = arr[1];
-      wordsWithDef.push({ word: key, type: type, definition: def });
+      wordsWithDef.push({
+        word: key,
+        type: type,
+        definition: def,
+        id: counter,
+      });
+      counter++;
     }
   });
   return wordsWithDef;
@@ -60,5 +67,5 @@ export const getQuestionAcq = function () {
   let answer = word[idx];
   let q = word.slice(0);
   q[idx] = "-";
-  return { hint: hint, word: word, answer: answer, q: q };
+  return { hint: hint, word: word, answer: answer, q: q, isChecked: false };
 };

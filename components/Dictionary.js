@@ -5,12 +5,18 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  Button,
+  Alert,
 } from "react-native";
-import { SearchBar } from "react-native-elements";
-
+import { SearchBar, CheckBox } from "react-native-elements";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { getAllWords, getLargeWordsList } from "../util/utils";
-const Dictionary = () => {
-  const [words, setWords] = useState(getAllWords());
+import FlashCardPage from "./FlashCardPage";
+const Stack = createNativeStackNavigator();
+
+const Dictionary = ({ navigation }) => {
+  //   const [words, setWords] = useState(getAllWords());
+  const [flashCardWords, setFlashCardWords] = useState([]);
   const [dataSource, setDataSource] = useState(getLargeWordsList());
   const [search, setSearch] = useState();
   const [filteredList, setFilteredList] = useState(dataSource);
@@ -36,12 +42,41 @@ const Dictionary = () => {
       )
     );
   };
+  const toFlashCards = () => {
+    let list = dataSource.filter((i) => i.isChecked === true);
+    if (list.length < 1) {
+      Alert.alert("Error", "No words are selected", [{ text: "Cancel" }]);
+      return;
+    }
+    setFlashCardWords([...list]);
+    navigation.navigate("FlashCardPage");
+  };
+  const checker = (idx) => {
+    //Need to set both lists for now, may explore more efficient options later.
+    setDataSource(
+      dataSource.map((i) =>
+        i.id === idx ? { ...i, isChecked: !i.isChecked } : i
+      )
+    );
+    setFilteredList(
+      filteredList.map((i) =>
+        i.id === idx ? { ...i, isChecked: !i.isChecked } : i
+      )
+    );
+  };
   const item = ({ item }) => {
     return (
       <View style={styles.wordBox}>
         <Text>{item.word}</Text>
         <Text>{item.type}</Text>
         <Text>{item.definition}</Text>
+        <CheckBox
+          title="Include in Flashcards"
+          checked={item.isChecked}
+          onPress={() => {
+            checker(item.id);
+          }}
+        />
       </View>
     );
   };
@@ -69,25 +104,57 @@ const Dictionary = () => {
     setFilteredList([...res]);
     return;
   };
+
+  const Dictlist = () => {
+    return (
+      <View>
+        <SearchBar
+          placeholder="Search here..."
+          onChangeText={(e) => {
+            setSearch(e);
+            setOffset(10);
+          }}
+          value={search}
+        />
+        <Button title="To flashcards" onPress={toFlashCards} />
+        <FlatList
+          data={filteredList.slice(0, offset)}
+          keyExtractor={(item, index) => index.toString()}
+          ItemSeparatorComponent={itemSeperator}
+          enableEmptySections={true}
+          renderItem={item}
+          ListFooterComponent={footer}
+        />
+      </View>
+    );
+  };
+
   return (
-    <View>
-      <SearchBar
-        placeholder="Search here..."
-        onChangeText={(e) => {
-          setSearch(e);
-          setOffset(10);
-        }}
-        value={search}
-      />
-      <FlatList
-        data={filteredList.slice(0, offset)}
-        keyExtractor={(item, index) => index.toString()}
-        ItemSeparatorComponent={itemSeperator}
-        enableEmptySections={true}
-        renderItem={item}
-        ListFooterComponent={footer}
-      />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="DictionaryList" component={Dictlist} />
+      <Stack.Screen name="FlashCardPage">
+        {(props) => <FlashCardPage {...props} wordList={flashCardWords} />}
+      </Stack.Screen>
+    </Stack.Navigator>
+    // <View>
+    //   <SearchBar
+    //     placeholder="Search here..."
+    //     onChangeText={(e) => {
+    //       setSearch(e);
+    //       setOffset(10);
+    //     }}
+    //     value={search}
+    //   />
+    //   <Button title="To flashcards" onPress={toFlashCards} />
+    //   <FlatList
+    //     data={filteredList.slice(0, offset)}
+    //     keyExtractor={(item, index) => index.toString()}
+    //     ItemSeparatorComponent={itemSeperator}
+    //     enableEmptySections={true}
+    //     renderItem={item}
+    //     ListFooterComponent={footer}
+    //   />
+    // </View>
   );
 };
 

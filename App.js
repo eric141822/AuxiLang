@@ -9,9 +9,8 @@ import Dictionary from "./components/Dictionary";
 import "./util/global.js";
 
 /* TODO:
-    Add dictionary page.
+    Add dictionary page. DONE
     Format Home screen.
-    Figure out linear gradient if possible.
 */
 
 const Stack = createNativeStackNavigator();
