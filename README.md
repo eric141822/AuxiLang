@@ -26,4 +26,6 @@ Crosswords:
 
 Hang-man:
 
-Alphabet Acquisition:
+Alphabet Acquisition: Eric (Basic functions and design done)
+
+Dictionary and Flashcards page: Eric (Basics done, need to add flashcard functions)
