@@ -38,7 +38,6 @@ const Acquisition = () => {
         global.acq_highscore = score;
       }
       console.log(global.acq_highscore);
-      // TODO: Pop-up win window or win text, add score, show "Next Question Button" and on click, reset question.;
     }
   };
 

@@ -9,14 +9,13 @@ import {
   Alert,
 } from "react-native";
 import { SearchBar, CheckBox } from "react-native-elements";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { getAllWords, getLargeWordsList } from "../util/utils";
 import FlashCardPage from "./FlashCardPage";
-const Stack = createNativeStackNavigator();
+import Modal from "react-native-modal";
 
 const Dictionary = ({ navigation }) => {
-  //   const [words, setWords] = useState(getAllWords());
   const [flashCardWords, setFlashCardWords] = useState([]);
+  const [show, setShow] = useState(false);
   const [dataSource, setDataSource] = useState(getLargeWordsList());
   const [search, setSearch] = useState();
   const [filteredList, setFilteredList] = useState(dataSource);
@@ -24,6 +23,27 @@ const Dictionary = ({ navigation }) => {
   useEffect(() => {
     searchFilter();
   }, [search, offset]);
+
+  const renderModal = () => {
+    return (
+      <View>
+        <Modal isVisible={show}>
+          <View>
+            <FlashCardPage wordList={flashCardWords} />
+          </View>
+          <View>
+            <Button
+              title="close flashcards"
+              onPress={() => {
+                setShow(false);
+              }}
+            />
+          </View>
+        </Modal>
+      </View>
+    );
+  };
+
   const getMore = () => {
     setOffset(offset + 10);
   };
@@ -49,7 +69,7 @@ const Dictionary = ({ navigation }) => {
       return;
     }
     setFlashCardWords([...list]);
-    navigation.navigate("FlashCardPage");
+    setShow(true);
   };
   const checker = (idx) => {
     //Need to set both lists for now, may explore more efficient options later.
@@ -105,56 +125,29 @@ const Dictionary = ({ navigation }) => {
     return;
   };
 
-  const Dictlist = () => {
-    return (
-      <View>
-        <SearchBar
-          placeholder="Search here..."
-          onChangeText={(e) => {
-            setSearch(e);
-            setOffset(10);
-          }}
-          value={search}
-        />
-        <Button title="To flashcards" onPress={toFlashCards} />
-        <FlatList
-          data={filteredList.slice(0, offset)}
-          keyExtractor={(item, index) => index.toString()}
-          ItemSeparatorComponent={itemSeperator}
-          enableEmptySections={true}
-          renderItem={item}
-          ListFooterComponent={footer}
-        />
-      </View>
-    );
-  };
-
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="DictionaryList" component={Dictlist} />
-      <Stack.Screen name="FlashCardPage">
-        {(props) => <FlashCardPage {...props} wordList={flashCardWords} />}
-      </Stack.Screen>
-    </Stack.Navigator>
-    // <View>
-    //   <SearchBar
-    //     placeholder="Search here..."
-    //     onChangeText={(e) => {
-    //       setSearch(e);
-    //       setOffset(10);
-    //     }}
-    //     value={search}
-    //   />
-    //   <Button title="To flashcards" onPress={toFlashCards} />
-    //   <FlatList
-    //     data={filteredList.slice(0, offset)}
-    //     keyExtractor={(item, index) => index.toString()}
-    //     ItemSeparatorComponent={itemSeperator}
-    //     enableEmptySections={true}
-    //     renderItem={item}
-    //     ListFooterComponent={footer}
-    //   />
-    // </View>
+    <View>
+      <Button title="show flashcards" onPress={toFlashCards} />
+      <FlatList
+        data={filteredList.slice(0, offset)}
+        keyExtractor={(item, index) => index.toString()}
+        ItemSeparatorComponent={itemSeperator}
+        enableEmptySections={true}
+        renderItem={item}
+        ListHeaderComponent={
+          <SearchBar
+            placeholder="Search here..."
+            onChangeText={(e) => {
+              setSearch(e);
+              setOffset(10);
+            }}
+            value={search}
+          />
+        }
+        ListFooterComponent={footer}
+      />
+      {renderModal()}
+    </View>
   );
 };
 
