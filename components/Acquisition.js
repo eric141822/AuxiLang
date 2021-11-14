@@ -7,7 +7,12 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
-import { randomWord, questionAcq, getQuestionAcq } from "../util/utils";
+import {
+  randomWord,
+  questionAcq,
+  getQuestionAcqIntro,
+  getQuestionAcqHard,
+} from "../util/utils";
 import Modal from "react-native-modal";
 
 /* 
@@ -18,7 +23,7 @@ import Modal from "react-native-modal";
     Maybe filter the word list to just include around 5000 entry level vocab?
 */
 const Acquisition = () => {
-  const [question, setQuestion] = useState(getQuestionAcq());
+  const [question, setQuestion] = useState(getQuestionAcqIntro());
   const [usedLetters, setUsedLetters] = useState([]);
   const [isWin, setIsWin] = useState(false);
   const [score, setScore] = useState(0);
@@ -34,10 +39,10 @@ const Acquisition = () => {
       setQuestion({ ...question, q: [...question.word] });
       setScore(score + 1);
       setIsWin(true);
-      if (score >= global.acq_highscore) {
-        global.acq_highscore = score;
-      }
-      console.log(global.acq_highscore);
+      //   if (score >= global.acq_highscore) {
+      //     global.acq_highscore = score;
+      //   }
+      //   console.log(global.acq_highscore);
     }
   };
 
@@ -45,7 +50,7 @@ const Acquisition = () => {
     setIsWin(false);
     // TODO: Modify JSON so that no repeating word would show up, global val to store high score.
     // setQuestion(questionAcq(randomWord()));
-    setQuestion(getQuestionAcq());
+    setQuestion(getQuestionAcqIntro());
     setUsedLetters([]);
   };
 

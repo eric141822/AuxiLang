@@ -12,11 +12,14 @@ import { SearchBar, CheckBox } from "react-native-elements";
 import { getAllWords, getLargeWordsList } from "../util/utils";
 import FlashCardPage from "./FlashCardPage";
 import Modal from "react-native-modal";
+import intro_vocab from "../assets/words/intro_vocab.json";
 
 const Dictionary = ({ navigation }) => {
   const [flashCardWords, setFlashCardWords] = useState([]);
   const [show, setShow] = useState(false);
-  const [dataSource, setDataSource] = useState(getLargeWordsList());
+  //   const [dataSource, setDataSource] = useState(getLargeWordsList());
+  const [dataSource, setDataSource] = useState(intro_vocab);
+
   const [search, setSearch] = useState();
   const [filteredList, setFilteredList] = useState(dataSource);
   const [offset, setOffset] = useState(10);
