@@ -2,12 +2,19 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "react-native-elements";
 
-const Homescreen = ({ navigation }) => {
+const Homescreen = ({ navigation, wordList }) => {
   return (
     <View style={styles.container}>
+      {/* <Button
+        title="test"
+        onPress={() => {
+          console.log(wordList[0]);
+          //   wordList[0].error++;
+        }}
+      /> */}
       <View style={styles.row}>
         <Button
-          style={styles.btn}
+          buttonStyle={styles.btn}
           title="Alphabet Acquisition"
           onPress={() => {
             navigation.navigate("Acquisition");
@@ -15,7 +22,7 @@ const Homescreen = ({ navigation }) => {
         />
 
         <Button
-          style={styles.btn}
+          buttonStyle={styles.btn}
           title="Dictionary"
           onPress={() => {
             navigation.navigate("Dictionary");
@@ -24,7 +31,7 @@ const Homescreen = ({ navigation }) => {
       </View>
       <View style={styles.row}>
         <Button
-          style={styles.btn}
+          buttonStyle={styles.btn}
           title="Hang-man"
           onPress={() => {
             // navigation.navigate("Acquisition");
@@ -32,7 +39,7 @@ const Homescreen = ({ navigation }) => {
         />
 
         <Button
-          style={styles.btn}
+          buttonStyle={styles.btn}
           title="Word Search"
           onPress={() => {
             // navigation.navigate("Dictionary");
@@ -59,8 +66,8 @@ const styles = StyleSheet.create({
   btn: {
     margin: 10,
     borderRadius: 10,
-    width: 250,
-    height: 200,
+    // width: 250,
+    // height: 200,
   },
 });
 export default Homescreen;

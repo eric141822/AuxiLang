@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  TouchableOpacity,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 import {
   randomWord,
   questionAcq,
   getQuestionAcqIntro,
   getQuestionAcqHard,
 } from "../util/utils";
+import { Button } from "react-native-elements";
+import {
+  IconButton,
+  Card,
+  Button as PaperButton,
+  Paragraph,
+} from "react-native-paper";
 import Modal from "react-native-modal";
 
 /* 
@@ -22,17 +22,58 @@ import Modal from "react-native-modal";
     Switch word list and question to 50000 words data. (DONE)
     Maybe filter the word list to just include around 5000 entry level vocab?
 */
-const Acquisition = () => {
-  const [question, setQuestion] = useState(getQuestionAcqIntro());
+const Acquisition = ({ wordList, navigation }) => {
+  const [question, setQuestion] = useState(getQuestionAcqIntro(wordList));
   const [usedLetters, setUsedLetters] = useState([]);
   const [isWin, setIsWin] = useState(false);
   const [score, setScore] = useState(0);
-  //   const [q, setQ] = useState(getQuestionAcq());
+  const [info, setInfo] = useState(false);
   useEffect(() => {
     //   console.log(q);
-    console.log(question);
+    // console.log(question);
+    navigation.setOptions({
+      headerRight: () => (
+        <IconButton
+          icon="information-outline"
+          size={20}
+          onPress={() => {
+            setInfo(!info);
+          }}
+        />
+      ),
+    });
   });
-
+  const renderInfoModal = function () {
+    return (
+      <View>
+        <Modal
+          isVisible={info}
+          onBackdropPress={() => {
+            setInfo(!info);
+          }}
+        >
+          <Card style={styles.infoPanel}>
+            <Card.Title title="Info" />
+            <Card.Content>
+              <Paragraph>
+                To win: Select the missing letter using the letters below.
+              </Paragraph>
+              <Paragraph>Incorrect letters will be grayed out.</Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <PaperButton
+                onPress={() => {
+                  setInfo(!info);
+                }}
+              >
+                Cancel
+              </PaperButton>
+            </Card.Actions>
+          </Card>
+        </Modal>
+      </View>
+    );
+  };
   const keyPress = function (letter) {
     setUsedLetters([letter, ...usedLetters]);
     if (letter === question.answer) {
@@ -50,7 +91,7 @@ const Acquisition = () => {
     setIsWin(false);
     // TODO: Modify JSON so that no repeating word would show up, global val to store high score.
     // setQuestion(questionAcq(randomWord()));
-    setQuestion(getQuestionAcqIntro());
+    setQuestion(getQuestionAcqIntro(wordList));
     setUsedLetters([]);
   };
 
@@ -130,6 +171,7 @@ const Acquisition = () => {
         })}
       </View>
       {renderModal()}
+      {renderInfoModal()}
       <Text style={styles.hintText}>Hint: {question.hint}</Text>
       {renderKeyBoard()}
     </View>
