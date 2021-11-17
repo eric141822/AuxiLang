@@ -28,6 +28,7 @@ const Dictionary = ({ navigation, wordList }) => {
   const [search, setSearch] = useState();
   const [filteredList, setFilteredList] = useState(dataSource);
   const [offset, setOffset] = useState(10);
+  const [errorSort, setErrorSort] = useState(false);
   useEffect(() => {
     searchFilter();
     navigation.setOptions({
@@ -41,7 +42,7 @@ const Dictionary = ({ navigation, wordList }) => {
         />
       ),
     });
-  }, [search, offset, info]);
+  }, [search, offset, info, errorSort]);
 
   const renderInfoModal = () => {
     return (
@@ -177,13 +178,21 @@ const Dictionary = ({ navigation, wordList }) => {
 
   const searchFilter = () => {
     if (!search || search === "") {
-      setFilteredList(dataSource);
+      if (errorSort) {
+        let list = [...dataSource].sort((a, b) => b.error - a.error);
+        setFilteredList([...list]);
+      } else {
+        setFilteredList(dataSource);
+      }
       return;
     }
     let keyword = search.toLowerCase();
-    let res = dataSource.filter((item) =>
-      item.word.toLowerCase().includes(keyword)
-    );
+    let res = !errorSort
+      ? dataSource.filter((item) => item.word.toLowerCase().includes(keyword))
+      : [...dataSource]
+          .filter((item) => item.word.toLowerCase().includes(keyword))
+          .sort((a, b) => b.error - a.error);
+
     setFilteredList([...res]);
     return;
   };
@@ -191,6 +200,13 @@ const Dictionary = ({ navigation, wordList }) => {
   return (
     <View>
       <Button title="Show Flashcards" onPress={toFlashCards} />
+      <CheckBox
+        title="Sort by Errors"
+        checked={errorSort}
+        onPress={() => {
+          setErrorSort(!errorSort);
+        }}
+      />
       <FlatList
         data={filteredList.slice(0, offset)}
         keyExtractor={(item) => item.id.toString()}

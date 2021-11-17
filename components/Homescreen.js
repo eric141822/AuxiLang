@@ -8,8 +8,10 @@ const Homescreen = ({ navigation, wordList }) => {
       {/* <Button
         title="test"
         onPress={() => {
-          console.log(wordList[0]);
-          //   wordList[0].error++;
+          //   console.log(wordList[0]);
+          wordList[0].error++;
+          wordList[1].error += 2;
+          wordList[99].error += 99;
         }}
       /> */}
       <View style={styles.row}>
