@@ -5,8 +5,8 @@ import {
   View,
   TouchableHighlight,
   TouchableOpacity,
-  Button,
 } from "react-native";
+import { Button } from "react-native-elements";
 
 import Flashcard from "./Flashcard";
 const FlashCardPage = ({ wordList }) => {
@@ -35,10 +35,27 @@ const FlashCardPage = ({ wordList }) => {
           }}
         />
       </View>
-      <View>
-        {index > 0 && <Button title="Last card" onPress={lastCard} />}
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 10,
+        }}
+      >
+        {index > 0 && (
+          <Button
+            buttonStyle={styles.btn}
+            title="Last Card"
+            onPress={lastCard}
+          />
+        )}
         {index < wordList.length - 1 && (
-          <Button title="Next card" onPress={nextCard} />
+          <Button
+            buttonStyle={styles.btn}
+            title="Next Card"
+            onPress={nextCard}
+          />
         )}
       </View>
     </View>
@@ -56,6 +73,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 30,
+  },
+  btn: {
+    margin: 10,
   },
 });
 export default FlashCardPage;

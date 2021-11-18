@@ -72,7 +72,7 @@ export const getQuestionAcqHard = function () {
   return { hint: hint, word: word, answer: answer, q: q, isChecked: false };
 };
 
-export const getQuestionAcqIntro = function () {
+export const getQuestionAcqIntro = function (intro_vocab) {
   let item = intro_vocab[(Math.random() * intro_vocab.length) | 0];
   let word = item.word.toUpperCase().split("");
   let hint = item.type + ", " + item.definition;

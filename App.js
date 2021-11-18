@@ -1,8 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import wordList from "./assets/words/intro_vocab.json";
+
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
@@ -15,12 +17,33 @@ import Dictionary from "./components/Dictionary";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [storeErrors, setStoreErrors] = useState(true);
+  const setStore = () => {
+    setStoreErrors(!storeErrors);
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Homescreen} />
-        <Stack.Screen name="Acquisition" component={Acquisition} />
-        <Stack.Screen name="Dictionary" component={Dictionary} />
+        <Stack.Screen name="Home">
+          {(props) => (
+            <Homescreen
+              {...props}
+              wordList={wordList}
+              isStore={storeErrors}
+              setStore={setStore}
+            />
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="Acquisition">
+          {(props) => (
+            <Acquisition {...props} wordList={wordList} isStore={storeErrors} />
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="Dictionary">
+          {(props) => (
+            <Dictionary {...props} wordList={wordList} isStore={storeErrors} />
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
