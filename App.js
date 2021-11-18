@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -17,17 +17,32 @@ import Dictionary from "./components/Dictionary";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [storeErrors, setStoreErrors] = useState(true);
+  const setStore = () => {
+    setStoreErrors(!storeErrors);
+  };
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home">
-          {(props) => <Homescreen {...props} wordList={wordList} />}
+          {(props) => (
+            <Homescreen
+              {...props}
+              wordList={wordList}
+              isStore={storeErrors}
+              setStore={setStore}
+            />
+          )}
         </Stack.Screen>
         <Stack.Screen name="Acquisition">
-          {(props) => <Acquisition {...props} wordList={wordList} />}
+          {(props) => (
+            <Acquisition {...props} wordList={wordList} isStore={storeErrors} />
+          )}
         </Stack.Screen>
         <Stack.Screen name="Dictionary">
-          {(props) => <Dictionary {...props} wordList={wordList} />}
+          {(props) => (
+            <Dictionary {...props} wordList={wordList} isStore={storeErrors} />
+          )}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

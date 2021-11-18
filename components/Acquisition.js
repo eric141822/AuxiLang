@@ -22,15 +22,14 @@ import Modal from "react-native-modal";
     Switch word list and question to 50000 words data. (DONE)
     Maybe filter the word list to just include around 5000 entry level vocab?
 */
-const Acquisition = ({ wordList, navigation }) => {
+const Acquisition = ({ wordList, navigation, isStore }) => {
   const [question, setQuestion] = useState(getQuestionAcqIntro(wordList));
   const [usedLetters, setUsedLetters] = useState([]);
   const [isWin, setIsWin] = useState(false);
   const [score, setScore] = useState(0);
   const [info, setInfo] = useState(false);
   useEffect(() => {
-    //   console.log(q);
-    // console.log(question);
+    // console.log(isStore);
     navigation.setOptions({
       headerRight: () => (
         <IconButton
@@ -52,7 +51,7 @@ const Acquisition = ({ wordList, navigation }) => {
             setInfo(!info);
           }}
         >
-          <Card style={styles.infoPanel}>
+          <Card>
             <Card.Title title="Info" />
             <Card.Content>
               <Paragraph>
