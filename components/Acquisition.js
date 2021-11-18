@@ -32,13 +32,15 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
     // console.log(isStore);
     navigation.setOptions({
       headerRight: () => (
-        <IconButton
-          icon="information-outline"
-          size={20}
-          onPress={() => {
-            setInfo(!info);
-          }}
-        />
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <IconButton
+            icon="information-outline"
+            size={25}
+            onPress={() => {
+              setInfo(!info);
+            }}
+          />
+        </View>
       ),
     });
   });

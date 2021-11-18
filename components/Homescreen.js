@@ -14,11 +14,11 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Switch value={isStore} onValueChange={setStore} />
           <IconButton
             icon="information-outline"
-            size={20}
+            size={25}
             onPress={() => {
               setInfo(!info);
             }}
