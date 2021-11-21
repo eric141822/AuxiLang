@@ -54,8 +54,57 @@ const GamePicture = () => {
     setUsedLetters([]);
   };
 
-
+  const renderModal = function () {
     return (
+      <View>
+        
+      </View>
+    );
+  };
+
+  const renderKeyBoard = function () {
+    const keysRows = [
+      ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+      ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+      [" ", "Z", "X", "C", "V", "B", "N", "M", " "],
+    ];
+    return (
+      <View style={styles.keyboard}>
+        {keysRows.map((keys, rowIndex) => {
+          return (
+            <View key={rowIndex} style={styles.keyboardRow}>
+              {keys.map((letter, index) => {
+                if (letter == " ") {
+                  return <Text key={index}> </Text>;
+                } else if (usedLetters.indexOf(letter) != -1) {
+                  return (
+                    <View style={styles.keyItem} key={index}>
+                      <Text key={index} style={styles.usedKey}>
+                        {letter}
+                      </Text>
+                    </View>
+                  );
+                } else {
+                  return (
+                    <TouchableHighlight
+                      style={styles.keyItem}
+                      key={index}
+                      onPress={() => {
+                        keyPress(letter);
+                      }}
+                    >
+                      <Text style={styles.letter}>{letter}</Text>
+                    </TouchableHighlight>
+                  );
+                }
+              })}
+            </View>
+          );
+        })}
+      </View>
+    );
+  };
+  return (
     <View style={styles.container}>
       <Text>Score: {score}</Text>
       <View style={styles.hiddenWord}>
