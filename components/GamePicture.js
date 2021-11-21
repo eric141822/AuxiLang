@@ -137,71 +137,7 @@ const GamePicture = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  hiddenWord: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  gameText: {
-    margin: 3,
-    fontSize: 25,
-  },
-  keyboard: {
-    flex: 1,
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  keyboardRow: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  keyItem: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 15,
-    margin: 2,
-  },
-  usedKey: {
-    color: "lightgrey",
-    fontSize: 20,
-    width: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  letter: {
-    color: "black",
-    fontSize: 20,
-    width: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  winBox: {
-    display: "flex",
-    height: "auto",
-    borderRadius: 5,
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "space-around",
-    backgroundColor: "#fff",
-  },
-  winText: {
-    fontSize: 30,
-    marginBottom: 15,
-    fontWeight: "bold",
-  },
-  hintText: {
-    fontStyle: "italic",
-  },
+  
 });
 
 export default GamePicture;
