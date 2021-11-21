@@ -18,9 +18,6 @@ import Modal from "react-native-modal";
 /* 
     TODO: 
     presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
-    Global js file in util folder for mode switching (keep track of error words or not).
-    Switch word list and question to 50000 words data. (DONE)
-    Maybe filter the word list to just include around 5000 entry level vocab?
 */
 const Acquisition = ({ wordList, navigation, isStore }) => {
   const [question, setQuestion] = useState(getQuestionAcqIntro(wordList));
@@ -32,13 +29,15 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
     // console.log(isStore);
     navigation.setOptions({
       headerRight: () => (
-        <IconButton
-          icon="information-outline"
-          size={20}
-          onPress={() => {
-            setInfo(!info);
-          }}
-        />
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <IconButton
+            icon="information-outline"
+            size={25}
+            onPress={() => {
+              setInfo(!info);
+            }}
+          />
+        </View>
       ),
     });
   });
