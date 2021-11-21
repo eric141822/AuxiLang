@@ -18,9 +18,6 @@ import Modal from "react-native-modal";
 /* 
     TODO: 
     presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
-    Global js file in util folder for mode switching (keep track of error words or not).
-    Switch word list and question to 50000 words data. (DONE)
-    Maybe filter the word list to just include around 5000 entry level vocab?
 */
 const Acquisition = ({ wordList, navigation, isStore }) => {
   const [question, setQuestion] = useState(getQuestionAcqIntro(wordList));
