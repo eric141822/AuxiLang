@@ -9,8 +9,14 @@ import {
 } from "react-native";
 import picture_name from "../assets/data/picture_list.json";
 
-const PictureGame = () => {
-
+const GameText= ({ navigation }) => {
+    const picName = ({ picName }) => {
+        return (
+          <View style={styles.wordBox}>
+            <Text>Lion</Text>
+          </View>
+        );
+      };
 }
 
 const styles = StyleSheet.create({
@@ -20,4 +26,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
       },
+    wordBox: {
+        backgroundColor: "lightblue",
+        padding: 5,
+        marginTop: 3,
+        width: "100%",
+        borderRadius: 5,
+        borderStyle: "solid",
+    }
  });
+
+ export default GameText;

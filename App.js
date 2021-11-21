@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
+import GameText from "./components/GameText";
 
 /* TODO:
     Add dictionary page. DONE
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Homescreen} />
         <Stack.Screen name="Acquisition" component={Acquisition} />
         <Stack.Screen name="Dictionary" component={Dictionary} />
+        <Stack.Screen name="GameText" component={GameText} />
       </Stack.Navigator>
     </NavigationContainer>
   );

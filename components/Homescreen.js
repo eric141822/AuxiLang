@@ -35,7 +35,7 @@ const Homescreen = ({ navigation }) => {
           style={styles.btn}
           title="4 Pics 1 Word"
           onPress={() => {
-            // navigation.navigate("Dictionary");
+            navigation.navigate("GameText");
           }}
         />
       </View>
