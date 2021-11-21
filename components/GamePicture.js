@@ -6,47 +6,36 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Button,
-  Image, 
+  Image,
+  FlatList, 
 } from "react-native";
 
 const onPress = () =>(1);
 
 const GamePicture = () => {
+  const [images, setimages]= useState([
+    require('../assets/pictures/animals/bear.jpg'),
+    require('../assets/pictures/animals/bee.jpg'),
+    require('../assets/pictures/animals/cow.jpg'),
+    require('../assets/pictures/animals/crow.jpg'),
+  ]);
+
   return (
     <View>
      <View style={styles.oreintation}>
-      <TouchableOpacity 
-      onPress={onPress}>
-      <Image
-      style={styles.tinyLogo}
-      source={require('../assets/pictures/animals/bear.jpg')}
-      />
-      </TouchableOpacity>
 
-      <TouchableOpacity 
-      onPress={onPress}>
-      <Image
-      style={styles.tinyLogo}
-      source={require('../assets/pictures/animals/bear.jpg')}
+      <FlatList
+        numColumns={2}
+        data={images}
+        renderItem={ ({item, index }) => (
+          <TouchableOpacity onPress={onPress}>
+          <Image source = {item}
+          key={index}
+          style={styles.tinyLogo}
+          /></TouchableOpacity>
+        )}
       />
-      </TouchableOpacity>
       </View>
-
-      <TouchableOpacity 
-      onPress={onPress}>
-      <Image
-      style={styles.tinyLogo}
-      source={require('../assets/pictures/animals/bear.jpg')}
-      />
-      </TouchableOpacity>
-      
-      <TouchableOpacity 
-      onPress={onPress}>
-      <Image
-      style={styles.tinyLogo}
-      source={require('../assets/pictures/animals/bear.jpg')}
-      />
-      </TouchableOpacity>
     </View>
   );
 };
@@ -58,8 +47,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   tinyLogo:{
-    width: 134,
-    height:134,
+    width: 150,
+    height:150,
     borderRadius:20,
 
   },
