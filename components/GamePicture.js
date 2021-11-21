@@ -6,25 +6,67 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Button,
+  Image, 
 } from "react-native";
-import {
-  randomWord,
-  questionAcq,
-  getQuestionAcqIntro,
-  getQuestionAcqHard,
-} from "../util/utils";
-import Modal from "react-native-modal";
+
+const onPress = () =>(1);
 
 const GamePicture = () => {
   return (
     <View>
-      <Text>Lion</Text>
+     <View style={styles.oreintation}>
+      <TouchableOpacity 
+      onPress={onPress}>
+      <Image
+      style={styles.tinyLogo}
+      source={require('../assets/pictures/animals/bear.jpg')}
+      />
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+      onPress={onPress}>
+      <Image
+      style={styles.tinyLogo}
+      source={require('../assets/pictures/animals/bear.jpg')}
+      />
+      </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity 
+      onPress={onPress}>
+      <Image
+      style={styles.tinyLogo}
+      source={require('../assets/pictures/animals/bear.jpg')}
+      />
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+      onPress={onPress}>
+      <Image
+      style={styles.tinyLogo}
+      source={require('../assets/pictures/animals/bear.jpg')}
+      />
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  tinyLogo:{
+    width: 134,
+    height:134,
+    borderRadius:20,
+
+  },
+  oreintation:{
+   display:"flex",
+   
+  }
 });
 
 export default GamePicture;
