@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Picture, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
-import GameText from "./components/GameText";
+import GamePicture from "./components/GamePicture";
 
 /* TODO:
     Add dictionary page. DONE
@@ -22,7 +22,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Homescreen} />
         <Stack.Screen name="Acquisition" component={Acquisition} />
         <Stack.Screen name="Dictionary" component={Dictionary} />
-        <Stack.Screen name="GameText" component={GameText} />
+        <Stack.Screen name="GamePicture" component={GamePicture} />
       </Stack.Navigator>
     </NavigationContainer>
   );
