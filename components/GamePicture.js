@@ -39,18 +39,11 @@ const GamePicture = () => {
 };
 
 const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
-  },
   tinyLogo:{
     width: 150,
     height:150,
     borderRadius:20,
-    padding:10
-
-
+    margin: 10
   },
 
 });
