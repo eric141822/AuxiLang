@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
-import { Button, Switch } from "react-native-elements";
+import { Button, Switch, Image } from "react-native-elements";
 import {
   IconButton,
   Card,
@@ -73,38 +73,60 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
         }}
       /> */}
       <View style={styles.row}>
-        <Button
-          buttonStyle={styles.btn}
-          title="Alphabet Acquisition"
-          onPress={() => {
-            navigation.navigate("Acquisition");
-          }}
-        />
-
-        <Button
-          buttonStyle={styles.btn}
-          title="Dictionary"
-          onPress={() => {
-            navigation.navigate("Dictionary");
-          }}
-        />
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/alphabetACQ.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Alphabet Acquisition"
+            onPress={() => {
+              navigation.navigate("Acquisition");
+            }}
+          />
+        </View>
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/dictionaryIcon.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Dictionary"
+            onPress={() => {
+              navigation.navigate("Dictionary");
+            }}
+          />
+        </View>
       </View>
       <View style={styles.row}>
-        <Button
-          buttonStyle={styles.btn}
-          title="Hang-man"
-          onPress={() => {
-            // navigation.navigate("Acquisition");
-          }}
-        />
-
-        <Button
-          buttonStyle={styles.btn}
-          title="Word Search"
-          onPress={() => {
-            // navigation.navigate("Dictionary");
-          }}
-        />
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/hangmanIcon.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Hang-man"
+            onPress={() => {
+              // navigation.navigate("Acquisition");
+            }}
+          />
+        </View>
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/picturesIcon.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Pictionary"
+            onPress={() => {
+              // navigation.navigate("Dictionary");
+            }}
+          />
+        </View>
       </View>
       {renderInfoModal()}
     </View>
@@ -124,11 +146,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
   },
+  gamePanel: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   btn: {
     margin: 10,
     borderRadius: 10,
-    // width: 250,
+    width: 175,
     // height: 200,
+  },
+  image: {
+    resizeMode: "contain",
+    height: 150,
+    width: 175,
   },
 });
 export default Homescreen;

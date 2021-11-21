@@ -158,7 +158,9 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
   };
   return (
     <View style={styles.container}>
-      <Text>Score: {score}</Text>
+      <View style={{ marginTop: 10 }}>
+        <Text style={{ fontSize: 20 }}>Score: {score}</Text>
+      </View>
       <View style={styles.hiddenWord}>
         {question.q.map((char, idx) => {
           return (
