@@ -22,8 +22,6 @@ const GamePicture = () => {
 
   return (
     <View>
-     <View style={styles.oreintation}>
-
       <FlatList
         numColumns={2}
         data={images}
@@ -35,7 +33,7 @@ const GamePicture = () => {
           /></TouchableOpacity>
         )}
       />
-      </View>
+    
     </View>
   );
 };
@@ -50,12 +48,11 @@ const styles = StyleSheet.create({
     width: 150,
     height:150,
     borderRadius:20,
+    padding:10
+
 
   },
-  oreintation:{
-   display:"flex",
-   
-  }
+
 });
 
 export default GamePicture;
