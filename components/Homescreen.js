@@ -33,7 +33,7 @@ const Homescreen = ({ navigation }) => {
 
         <Button
           style={styles.btn}
-          title="Word Search"
+          title="4 Pics 1 Word"
           onPress={() => {
             // navigation.navigate("Dictionary");
           }}
@@ -46,7 +46,7 @@ const Homescreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#93D3F5",
     alignItems: "center",
     justifyContent: "center",
   },
