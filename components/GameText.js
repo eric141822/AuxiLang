@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { render } from "react-dom";
 import {
   StyleSheet,
   Text,
@@ -17,6 +18,13 @@ const GameText= ({ navigation }) => {
           </View>
         );
       };
+      render() {
+          return (
+        <View style={styles.wordBox}>
+            <Text>Lion</Text>
+        </View>
+        );
+      }
 }
 
 const styles = StyleSheet.create({
