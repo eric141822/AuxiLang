@@ -86,3 +86,21 @@ export const getQuestionAcqIntro = function (intro_vocab) {
 export const getQuestionHangmanIntro = function (intro_vocab) {
   return intro_vocab[(Math.random() * intro_vocab.length) | 0];
 };
+
+export const getQuestionAcqIntroOnlyError = function (intro_vocab) {
+  let errorOnly = intro_vocab.filter((item) => item.error > 0);
+
+  let item = errorOnly[(Math.random() * errorOnly.length) | 0];
+  let word = item.word.toUpperCase().split("");
+  let hint = item.type + ", " + item.definition;
+  let idx = (Math.random() * item.word.length) | 0;
+  let answer = word[idx];
+  let q = word.slice(0);
+  q[idx] = "-";
+  return { hint: hint, word: word, answer: answer, q: q, isChecked: false };
+};
+
+export const getQuestionHangmanIntroOnlyError = function (intro_vocab) {
+  let errorOnly = intro_vocab.filter((item) => item.error > 0);
+  return errorOnly[(Math.random() * errorOnly.length) | 0];
+};

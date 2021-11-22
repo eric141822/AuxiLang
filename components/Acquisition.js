@@ -5,6 +5,7 @@ import {
   questionAcq,
   getQuestionAcqIntro,
   getQuestionAcqHard,
+  getQuestionAcqIntroOnlyError,
 } from "../util/utils";
 import { Button } from "react-native-elements";
 import {
@@ -20,7 +21,9 @@ import Modal from "react-native-modal";
     presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
 */
 const Acquisition = ({ wordList, navigation, isStore }) => {
-  const [question, setQuestion] = useState(getQuestionAcqIntro(wordList));
+  const [question, setQuestion] = isStore
+    ? useState(getQuestionAcqIntro(wordList))
+    : useState(getQuestionAcqIntroOnlyError(wordList));
   const [usedLetters, setUsedLetters] = useState([]);
   const [isWin, setIsWin] = useState(false);
   const [score, setScore] = useState(0);
@@ -87,9 +90,12 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
 
   const nextQuestion = function () {
     setIsWin(false);
-    // TODO: Modify JSON so that no repeating word would show up, global val to store high score.
     // setQuestion(questionAcq(randomWord()));
-    setQuestion(getQuestionAcqIntro(wordList));
+    if (isStore) {
+      setQuestion(getQuestionAcqIntro(wordList));
+    } else {
+      setQuestion(getQuestionAcqIntroOnlyError(wordList));
+    }
     setUsedLetters([]);
   };
 
