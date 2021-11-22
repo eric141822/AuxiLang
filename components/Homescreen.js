@@ -8,9 +8,10 @@ import {
   Paragraph,
 } from "react-native-paper";
 import Modal from "react-native-modal";
-
+import { AuthContext } from "../util/context";
 const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   const [info, setInfo] = useState(false);
+  const { signOut } = React.useContext(AuthContext);
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -128,6 +129,14 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             }}
           />
         </View>
+      </View>
+      <View style={styles.row}>
+        <Button
+          title="Sign Out"
+          onPress={() => {
+            signOut();
+          }}
+        />
       </View>
       {renderInfoModal()}
     </View>
