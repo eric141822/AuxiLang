@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import all from '../assets/data/picture_list.json';
 
 import {
   StyleSheet,
@@ -11,22 +10,23 @@ import {
   Image,
   FlatList, 
   Alert,
+  SafeAreaView,
 } from "react-native";
+import { ActivityIndicator } from "react-native-paper";
+import titles from '../assets/data/picture_list.json'
 
 
 
-function randomArrayShuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-}
-
+// function randomArrayShuffle(array) {
+//   var currentIndex = array.length, temporaryValue, randomIndex;
+//   while (0 !== currentIndex) {
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex -= 1;
+//     temporaryValue = array[currentIndex];
+//     array[currentIndex] = array[randomIndex];
+//     array[randomIndex] = temporaryValue;
+//   }
+//   return array;
 
 const wordList = require('../assets/data/picture_list.json');
 
@@ -46,7 +46,6 @@ Alert.alert(
   ]
 );
 
-// const guessWord;
 
 const GamePicture = () => {
   const [images, setimages]= useState([
@@ -56,9 +55,18 @@ const GamePicture = () => {
     require('../assets/pictures/all/pizza.jpg'),
   ]);
 
+  
   return (
     <View style={styles.container}>
-      <Text style = {styles.title}>Pasta</Text>
+      <Text>Titles</Text>
+      <FlatList
+        data = {titles}
+        showsVerticalScrollIndicator={false}
+        renderItem={({item}) => 
+        <Text>{item.all}</Text>
+        }
+        keyExtractor={(item,index) => index.toString()}
+      />
       <FlatList
         contentContainerStyle={{flexGrow:1, justifyContent: 'center', marginLeft:35, paddingBottom: 50}}
         numColumns={2}
@@ -75,8 +83,6 @@ const GamePicture = () => {
     </View>
   );
 };
-
-
 
 
 const styles = StyleSheet.create({
