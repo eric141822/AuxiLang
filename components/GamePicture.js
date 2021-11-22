@@ -46,17 +46,21 @@ Alert.alert(
   ]
 );
 
+// const guessWord;
+
 const GamePicture = () => {
   const [images, setimages]= useState([
-    require('../assets/pictures/all/bear.jpg'),
-    require('../assets/pictures/all/bee.jpg'),
-    require('../assets/pictures/all/cow.jpg'),
-    require('../assets/pictures/all/crow.jpg'),
+    require('../assets/pictures/all/kiwi.jpg'),
+    require('../assets/pictures/all/apple.jpg'),
+    require('../assets/pictures/all/pasta.jpg'),
+    require('../assets/pictures/all/pizza.jpg'),
   ]);
 
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style = {styles.title}>Pasta</Text>
       <FlatList
+        contentContainerStyle={{flexGrow:1, justifyContent: 'center', marginLeft:35, paddingBottom: 50}}
         numColumns={2}
         data={images}
         renderItem={ ({item, index }) => (
@@ -76,6 +80,17 @@ const GamePicture = () => {
 
 
 const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: 'white'
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 50,
+    color:'black',
+    fontSize:50,
+  },
   tinyLogo:{
     width: 150,
     height:150,
