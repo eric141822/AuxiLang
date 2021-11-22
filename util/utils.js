@@ -1,6 +1,6 @@
 import words from "../assets/words/data2.json";
 import dictionary from "../assets/combines";
-import intro_vocab from "../assets/words/intro_vocab.json";
+// import intro_vocab from "../assets/words/intro_vocab.json";
 export const getAllWords = function () {
   let allWords = [];
   for (let arr of Object.values(words)) {
@@ -81,4 +81,8 @@ export const getQuestionAcqIntro = function (intro_vocab) {
   let q = word.slice(0);
   q[idx] = "-";
   return { hint: hint, word: word, answer: answer, q: q, isChecked: false };
+};
+
+export const getQuestionHangmanIntro = function (intro_vocab) {
+  return intro_vocab[(Math.random() * intro_vocab.length) | 0];
 };

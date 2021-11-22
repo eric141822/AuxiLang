@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   Alert,
 } from "react-native";
-
+import { getQuestionHangmanIntro } from "../util/utils";
 import { Puzzles } from "../assets/puzzles/index";
 class HangmanGame extends React.Component {
   constructor(props) {
@@ -22,9 +22,10 @@ class HangmanGame extends React.Component {
       lettersLeft: [],
       input: "",
       score: 0,
+      puzzle: null,
     };
     this.init = this.init.bind(this);
-    this.puzzles = new Puzzles();
+    // this.puzzles = new Puzzles();
   }
   componentDidMount() {
     this.init();
@@ -33,7 +34,8 @@ class HangmanGame extends React.Component {
     title: "Back",
   };
   init() {
-    let puzzle = this.puzzles.getRandom();
+    // let puzzle = this.puzzles.getRandom();
+    let puzzle = getQuestionHangmanIntro(this.props.wordList);
     let answer = puzzle.word.replace(/[^a-zA-Z]/gim, " ").trim();
     let hint = puzzle.definition;
     let lettersLeft = Array(answer.length);
@@ -48,6 +50,7 @@ class HangmanGame extends React.Component {
       usedLetters: [],
       lettersLeft: lettersLeft,
       input: "",
+      puzzle: puzzle,
     });
   }
   validate(usedLetters, letter) {
@@ -56,7 +59,8 @@ class HangmanGame extends React.Component {
       wrong = this.state.wrong,
       answer = this.state.answer,
       lettersLeft = this.state.lettersLeft,
-      score = this.state.score;
+      score = this.state.score,
+      puzzle = this.state.puzzle;
     if (answer.toUpperCase().indexOf(letter) == -1) {
       wrong++;
       if (score > 0) {
@@ -91,6 +95,9 @@ class HangmanGame extends React.Component {
       score: score,
     });
     if (wrong > 7) {
+      // add error
+      puzzle.error++;
+
       this.init();
     }
   }
@@ -197,8 +204,8 @@ class HangmanGame extends React.Component {
   }
 }
 
-const Hangman = () => {
-  return <HangmanGame />;
+const Hangman = ({ wordList, isStore }) => {
+  return <HangmanGame wordList={wordList} isStore={isStore} />;
 };
 
 export default Hangman;
