@@ -110,7 +110,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Hang-man"
             onPress={() => {
-              // navigation.navigate("Acquisition");
+              navigation.navigate("Hangman");
             }}
           />
         </View>
