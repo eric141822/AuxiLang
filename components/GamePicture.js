@@ -49,6 +49,19 @@ Alert.alert(
 // const guessWord;
 
 const GamePicture = () => {
+
+
+  const [minVal,setMinVal]=useState(0)
+  const [maxVal,setMaxVal]=useState(222 )
+  const [rand,setRand]=useState(100)
+  
+  const handleRandNum=()=>{
+    setRand(Math.floor(Math.random()*(maxVal-minVal+1)+minVal))
+  }
+  
+
+
+
   const [images, setimages]= useState([
     require('../assets/pictures/all/kiwi.jpg'),
     require('../assets/pictures/all/apple.jpg'),
@@ -58,13 +71,13 @@ const GamePicture = () => {
 
   return (
     <View style={styles.container}>
-      <Text style = {styles.title}>Pasta</Text>
+      <Text style = {styles.title}>Pasta{rand}</Text>
       <FlatList
         contentContainerStyle={{flexGrow:1, justifyContent: 'center', marginLeft:35, paddingBottom: 50}}
         numColumns={2}
         data={images}
         renderItem={ ({item, index }) => (
-          <TouchableOpacity onPress={(wrongAns)}>
+          <TouchableOpacity onPress={(handleRandNum)}>
           <Image source = {item}
           key={index}
           style={styles.tinyLogo}
