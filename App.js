@@ -8,7 +8,7 @@ import wordList from "./assets/words/intro_vocab.json";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
-
+import Hangman from "./components/Hangman";
 /* TODO:
     Add dictionary page. DONE
     Format Home screen.
@@ -44,6 +44,7 @@ export default function App() {
             <Dictionary {...props} wordList={wordList} isStore={storeErrors} />
           )}
         </Stack.Screen>
+        <Stack.Screen name="Hangman" component={Hangman} />
       </Stack.Navigator>
     </NavigationContainer>
   );
