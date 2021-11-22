@@ -71,19 +71,15 @@ const GamePicture = () => {
   
   return (
     <View style={styles.container}>
-<<<<<<< HEAD
       <Text>Titles</Text>
       <FlatList
         data = {titles}
         showsVerticalScrollIndicator={false}
         renderItem={({item}) => 
-        <Text>{item.all}</Text>
+        <Text>{item.all[rand]}</Text>
         }
         keyExtractor={(item,index) => index.toString()}
       />
-=======
-      <Text style = {styles.title}>Pasta{rand}</Text>
->>>>>>> 30436bee904d97d0b172770c82327105e93949cd
       <FlatList
         contentContainerStyle={{flexGrow:1, justifyContent: 'center', marginLeft:35, paddingBottom: 50}}
         numColumns={2}
