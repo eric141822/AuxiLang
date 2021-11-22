@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import wordList from "./assets/words/intro_vocab.json";
@@ -19,7 +19,14 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [storeErrors, setStoreErrors] = useState(true);
   const setStore = () => {
-    setStoreErrors(!storeErrors);
+    let errorOnly = wordList.filter((item) => item.error > 0);
+    if (errorOnly.length > 0) {
+      setStoreErrors(!storeErrors);
+    } else {
+      Alert.alert("Error", "You have not made a mistake on any words yet.", [
+        { text: "Cancel" },
+      ]);
+    }
   };
   return (
     <NavigationContainer>

@@ -8,7 +8,10 @@ import {
   TouchableHighlight,
   Alert,
 } from "react-native";
-import { getQuestionHangmanIntro } from "../util/utils";
+import {
+  getQuestionHangmanIntro,
+  getQuestionHangmanIntroOnlyError,
+} from "../util/utils";
 import { Puzzles } from "../assets/puzzles/index";
 class HangmanGame extends React.Component {
   constructor(props) {
@@ -35,7 +38,9 @@ class HangmanGame extends React.Component {
   };
   init() {
     // let puzzle = this.puzzles.getRandom();
-    let puzzle = getQuestionHangmanIntro(this.props.wordList);
+    let puzzle = this.props.isStore
+      ? getQuestionHangmanIntro(this.props.wordList)
+      : getQuestionHangmanIntroOnlyError(this.props.wordList);
     let answer = puzzle.word.replace(/[^a-zA-Z]/gim, " ").trim();
     let hint = puzzle.definition;
     let lettersLeft = Array(answer.length);
@@ -95,8 +100,8 @@ class HangmanGame extends React.Component {
       score: score,
     });
     if (wrong > 7) {
-      // add error
-      puzzle.error++;
+      // add error if isStore
+      if (this.props.isStore) puzzle.error++;
 
       this.init();
     }

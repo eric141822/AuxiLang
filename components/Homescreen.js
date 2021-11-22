@@ -43,8 +43,9 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             <Card.Content>
               <Paragraph>Select the game you want to play below!</Paragraph>
               <Paragraph>
-                If you wish to NOT save the erros you've made, click the switch
-                next to this info button to deactivate error save functions.
+                If you wish to NOT save the errors you've made and ONLY practice
+                on words you've made a mistake on, click the switch next to this
+                info button to deactivate error save functions.
               </Paragraph>
             </Card.Content>
             <Card.Actions>
