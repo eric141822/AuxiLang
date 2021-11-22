@@ -44,7 +44,11 @@ export default function App() {
             <Dictionary {...props} wordList={wordList} isStore={storeErrors} />
           )}
         </Stack.Screen>
-        <Stack.Screen name="Hangman" component={Hangman} />
+        <Stack.Screen name="Hangman">
+          {(props) => (
+            <Hangman {...props} wordList={wordList} isStore={storeErrors} />
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
