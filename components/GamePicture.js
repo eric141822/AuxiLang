@@ -12,19 +12,11 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
+
 import { ActivityIndicator } from "react-native-paper";
 import titles from "../assets/data/picture_list.json";
 import { getPictures } from "../util/utils";
-// function randomArrayShuffle(array) {
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-//   while (0 !== currentIndex) {
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-//   return array;
+
 
 const wordList = require("../assets/data/picture_list.json");
 
@@ -40,34 +32,31 @@ const wrongAns = () =>
 
 const GamePicture = () => {
   const [minVal, setMinVal] = useState(0);
-  const [maxVal, setMaxVal] = useState(222);
-  const [rand, setRand] = useState(100);
+  const [maxVal, setMaxVal] = useState(3);
+  const [rand, setRand] = useState(0);
 
   const [pics, setPics] = useState(getPictures());
 
-  //   const [filepaths, setFilepaths] = useState(getPictures(wordList[0]["all"]));
   const handleRandNum = () => {
     setRand(Math.floor(Math.random() * (maxVal - minVal + 1) + minVal));
   };
 
-  const [images, setimages] = useState([
-    require("../assets/pictures/all/kiwi.jpg"),
-    require("../assets/pictures/all/apple.jpg"),
-    require("../assets/pictures/all/pasta.jpg"),
-    require("../assets/pictures/all/pizza.jpg"),
-  ]);
-
-  //   useEffect(() => {
-  //     console.log(getPictures());
-  //   });
-
+  var a=[]
+  for (i=0; i<4;i++){
+    a.push(pics[i].id)
+    
+  }
+  console.log(a)
   return (
     <View style={styles.container}>
-      <Text>Titles</Text>
+  
       <FlatList
         data={titles}
+        
         showsVerticalScrollIndicator={false}
-        renderItem={({ item }) => <Text>{item.all[rand]}</Text>}
+        renderItem={({ item }) => 
+        <Text style={styles.title}>{item.all[a[rand]]}</Text>
+      }
         keyExtractor={(item, index) => index.toString()}
       />
       <FlatList
@@ -80,9 +69,10 @@ const GamePicture = () => {
         numColumns={2}
         data={pics}
         renderItem={({ item, index }) => (
-          <TouchableOpacity onPress={handleRandNum}>
+          <TouchableOpacity onPress={wrongAns}>
             <Image source={item.src} key={index} style={styles.tinyLogo} />
           </TouchableOpacity>
+         
         )}
         keyExtractor={(item) => item.id}
       />
