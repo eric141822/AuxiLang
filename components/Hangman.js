@@ -24,7 +24,7 @@ class HangmanGame extends React.Component {
       usedLetters: [],
       lettersLeft: [],
       input: "",
-      score: 0,
+      score: 0, 
       puzzle: null,
     };
     this.init = this.init.bind(this);
@@ -91,6 +91,15 @@ class HangmanGame extends React.Component {
         { cancelable: false }
       );
     }
+    if(wrong == 7){
+      Alert.alert(
+        "You got it Wrong!",
+        "Answer is "+"'"+answer.toLowerCase()+"'", 
+        [{text: "OK", onPress: () => this.init() }],
+        { cancelable: false}
+      )
+    }
+
 
     this.setState({
       usedLetters: usedLetters,
@@ -99,7 +108,7 @@ class HangmanGame extends React.Component {
       lettersLeft: lettersLeft,
       score: score,
     });
-    if (wrong > 7) {
+    if (wrong == 7) {
       // add error if isStore
       if (this.props.isStore) puzzle.error++;
 
