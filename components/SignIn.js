@@ -74,42 +74,15 @@ const SignIn = ({ navigation }) => {
           autoCapitalize="none"
         />
       </View>
+
       <View style={styles.button}>
         <Button
+          buttonStyle={{ width: 300, borderRadius: 30 }}
           title="LOGIN"
           onPress={() => {
             loginHandle(data.username, data.password);
           }}
         />
-        {/* <TouchableOpacity
-          style={{
-            width: "100%",
-            height: 50,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 10,
-          }}
-          onPress={() => {
-            loginHandle(data.username, data.password);
-          }}
-        >
-          <Text>Sign In</Text>
-        </TouchableOpacity> */}
-        {/* <TouchableOpacity
-          style={{
-            width: "100%",
-            height: 50,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 10,
-          }}
-          onPress={() => {
-            // navigation.navigate("SignUp");
-            console.log("Pressed Sign Up");
-          }}
-        >
-          <Text>Sign Up</Text>
-        </TouchableOpacity> */}
       </View>
     </View>
   );

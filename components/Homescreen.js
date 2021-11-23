@@ -130,9 +130,10 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
         </View>
       </View>
-      <View style={styles.row}>
+      <View style={{ ...styles.row, marginTop: 30 }}>
         <Button
           title="Sign Out"
+          buttonStyle={{ width: 300, borderRadius: 30 }}
           onPress={() => {
             signOut();
           }}
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   row: {
-    flex: 1,
+    // flex: 1,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
