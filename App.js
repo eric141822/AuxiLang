@@ -57,6 +57,7 @@ export default function App() {
             <Hangman {...props} wordList={wordList} isStore={storeErrors} />
           )}
         </Stack.Screen>
+        <Stack.Screen name="GamePicture" component={GamePicture} />
       </Stack.Navigator>
     </NavigationContainer>
   );

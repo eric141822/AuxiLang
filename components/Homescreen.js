@@ -124,7 +124,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Pictionary"
             onPress={() => {
-              // navigation.navigate("Dictionary");
+              navigation.navigate("GamePicture");
             }}
           />
         </View>
@@ -137,7 +137,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#93D3F5",
+    // backgroundColor: "#93D3F5",
     alignItems: "center",
     justifyContent: "center",
   },
