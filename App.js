@@ -1,8 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect, useMemo } from "react";
 import { StyleSheet, Text, View, Alert, ActivityIndicator } from "react-native";
+import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
 import wordList from "./assets/words/intro_vocab.json";
 
 import Acquisition from "./components/Acquisition";
@@ -10,6 +13,7 @@ import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
 import Hangman from "./components/Hangman";
 import RootStack from "./components/RootStack";
+import DrawerContent from "./components/DrawerContent";
 
 import { AuthContext } from "./util/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -20,7 +24,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 */
 
 const Stack = createNativeStackNavigator();
-
+const Drawer = createDrawerNavigator();
 export default function App() {
   const [storeErrors, setStoreErrors] = useState(true);
 
@@ -127,7 +131,47 @@ export default function App() {
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
         {loginState.userToken !== null ? (
-          <Stack.Navigator>
+          <Drawer.Navigator
+            drawerContent={(props) => <DrawerContent {...props} />}
+          >
+            <Drawer.Screen name="Home">
+              {(props) => (
+                <Homescreen
+                  {...props}
+                  wordList={wordList}
+                  isStore={storeErrors}
+                  setStore={setStore}
+                />
+              )}
+            </Drawer.Screen>
+            <Drawer.Screen name="Acquisition">
+              {(props) => (
+                <Acquisition
+                  {...props}
+                  wordList={wordList}
+                  isStore={storeErrors}
+                />
+              )}
+            </Drawer.Screen>
+            <Drawer.Screen name="Dictionary">
+              {(props) => (
+                <Dictionary
+                  {...props}
+                  wordList={wordList}
+                  isStore={storeErrors}
+                />
+              )}
+            </Drawer.Screen>
+            <Drawer.Screen name="Hangman">
+              {(props) => (
+                <Hangman {...props} wordList={wordList} isStore={storeErrors} />
+              )}
+            </Drawer.Screen>
+          </Drawer.Navigator>
+        ) : (
+          <RootStack />
+        )}
+        {/* <Stack.Navigator>
             <Stack.Screen name="Home">
               {(props) => (
                 <Homescreen
@@ -161,10 +205,7 @@ export default function App() {
                 <Hangman {...props} wordList={wordList} isStore={storeErrors} />
               )}
             </Stack.Screen>
-          </Stack.Navigator>
-        ) : (
-          <RootStack />
-        )}
+          </Stack.Navigator> */}
       </NavigationContainer>
     </AuthContext.Provider>
   );
