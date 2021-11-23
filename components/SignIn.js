@@ -54,17 +54,20 @@ const SignIn = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Username</Text>
       <View style={styles.inputContainer}>
+        <Text>Username</Text>
         <TextInput
+          style={styles.textInput}
           onChangeText={(val) => textInputChange(val)}
-          placeholder="User Name"
+          placeholder="Username"
           autoCapitalize="none"
         />
       </View>
-      <Text>Password</Text>
+
       <View style={styles.inputContainer}>
+        <Text>Password</Text>
         <TextInput
+          style={styles.textInput}
           secureTextEntry={true}
           onChangeText={(val) => handlePasswordChange(val)}
           placeholder="Password"
@@ -72,7 +75,13 @@ const SignIn = ({ navigation }) => {
         />
       </View>
       <View style={styles.button}>
-        <TouchableOpacity
+        <Button
+          title="LOGIN"
+          onPress={() => {
+            loginHandle(data.username, data.password);
+          }}
+        />
+        {/* <TouchableOpacity
           style={{
             width: "100%",
             height: 50,
@@ -85,7 +94,7 @@ const SignIn = ({ navigation }) => {
           }}
         >
           <Text>Sign In</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {/* <TouchableOpacity
           style={{
             width: "100%",
@@ -111,9 +120,12 @@ export default SignIn;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     alignItems: "center",
+    width: "80%",
     marginTop: 50,
   },
   text_header: {
@@ -122,10 +134,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   inputContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    // borderWidth: 2,
-    // borderColor: "black",
+    width: "80%",
     marginTop: 12,
+  },
+  textInput: {
+    borderBottomWidth: 2,
+    borderBottomColor: "lightgrey",
   },
 });
