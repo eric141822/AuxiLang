@@ -5,38 +5,99 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Button,
   Alert,
 } from "react-native";
-import { SearchBar, CheckBox } from "react-native-elements";
-import { getAllWords, getLargeWordsList } from "../util/utils";
+import { SearchBar, CheckBox, Button } from "react-native-elements";
+import {
+  IconButton,
+  Card,
+  Button as PaperButton,
+  Paragraph,
+} from "react-native-paper";
+// import { getAllWords, getLargeWordsList } from "../util/utils";
 import FlashCardPage from "./FlashCardPage";
 import Modal from "react-native-modal";
-import intro_vocab from "../assets/words/intro_vocab.json";
+// import intro_vocab from "../assets/words/intro_vocab.json";
 
-const Dictionary = ({ navigation }) => {
+const Dictionary = ({ navigation, wordList }) => {
   const [flashCardWords, setFlashCardWords] = useState([]);
   const [show, setShow] = useState(false);
-  //   const [dataSource, setDataSource] = useState(getLargeWordsList());
-  const [dataSource, setDataSource] = useState(intro_vocab);
-
+  const [dataSource, setDataSource] = useState(wordList);
+  const [info, setInfo] = useState(false);
   const [search, setSearch] = useState();
   const [filteredList, setFilteredList] = useState(dataSource);
   const [offset, setOffset] = useState(10);
+  const [errorSort, setErrorSort] = useState(false);
   useEffect(() => {
     searchFilter();
-  }, [search, offset]);
+    navigation.setOptions({
+      headerRight: () => (
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <IconButton
+            icon="information-outline"
+            size={25}
+            onPress={() => {
+              setInfo(!info);
+            }}
+          />
+        </View>
+      ),
+    });
+  }, [search, offset, info, errorSort, show]);
 
-  const renderModal = () => {
+  const renderInfoModal = () => {
     return (
       <View>
-        <Modal isVisible={show}>
+        <Modal
+          isVisible={info}
+          onBackdropPress={() => {
+            setInfo(!info);
+          }}
+        >
+          <Card>
+            <Card.Title title="Info" />
+            <Card.Content>
+              <Paragraph>
+                Type in the search bar to search for a certain word.
+              </Paragraph>
+              <Paragraph>
+                Click on the checkbox under each word to include them in
+                flashcards.
+              </Paragraph>
+              <Paragraph>
+                Click on the button "Show Flashcards" after selecting the words.
+              </Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <PaperButton
+                onPress={() => {
+                  setInfo(!info);
+                }}
+              >
+                Cancel
+              </PaperButton>
+            </Card.Actions>
+          </Card>
+        </Modal>
+      </View>
+    );
+  };
+
+  const renderFlashCardModal = () => {
+    return (
+      <View>
+        <Modal
+          isVisible={show}
+          onBackdropPress={() => {
+            setShow(false);
+          }}
+        >
           <View>
             <FlashCardPage wordList={flashCardWords} />
           </View>
           <View>
             <Button
-              title="close flashcards"
+              title="Close Flashcards"
               onPress={() => {
                 setShow(false);
               }}
@@ -59,7 +120,7 @@ const Dictionary = ({ navigation }) => {
             activeOpacity={0.8}
             onPress={getMore}
           >
-            <Text style={{ color: "white", fontSize: 15 }}>Load More</Text>
+            <Text style={styles.footerText}>Load More</Text>
           </TouchableOpacity>
         </View>
       )
@@ -87,19 +148,24 @@ const Dictionary = ({ navigation }) => {
       )
     );
   };
-  const item = ({ item }) => {
+  const itemComponent = ({ item }) => {
     return (
       <View style={styles.wordBox}>
-        <Text>{item.word}</Text>
-        <Text>{item.type}</Text>
-        <Text>{item.definition}</Text>
-        <CheckBox
-          title="Include in Flashcards"
-          checked={item.isChecked}
-          onPress={() => {
-            checker(item.id);
-          }}
-        />
+        <View style={styles.wordDetail}>
+          <Text style={styles.dictWord}>{item.word}</Text>
+          <Text style={styles.dictType}>{item.type}</Text>
+          <Text>{item.definition}</Text>
+          <Text>No. of errors made: {item.error}</Text>
+        </View>
+        <View style={styles.checkBoxContainer}>
+          <CheckBox
+            size={30}
+            checked={item.isChecked}
+            onPress={() => {
+              checker(item.id);
+            }}
+          />
+        </View>
       </View>
     );
   };
@@ -117,39 +183,67 @@ const Dictionary = ({ navigation }) => {
 
   const searchFilter = () => {
     if (!search || search === "") {
-      setFilteredList(dataSource);
+      if (errorSort) {
+        let list = [...dataSource].sort((a, b) => b.error - a.error);
+        setFilteredList([...list]);
+      } else {
+        setFilteredList(dataSource);
+      }
       return;
     }
     let keyword = search.toLowerCase();
-    let res = dataSource.filter((item) =>
-      item.word.toLowerCase().includes(keyword)
-    );
+    let res = !errorSort
+      ? dataSource.filter((item) => item.word.toLowerCase().includes(keyword))
+      : [...dataSource]
+          .filter((item) => item.word.toLowerCase().includes(keyword))
+          .sort((a, b) => b.error - a.error);
+
     setFilteredList([...res]);
     return;
   };
 
   return (
     <View>
-      <Button title="show flashcards" onPress={toFlashCards} />
-      <FlatList
-        data={filteredList.slice(0, offset)}
-        keyExtractor={(item, index) => index.toString()}
-        ItemSeparatorComponent={itemSeperator}
-        enableEmptySections={true}
-        renderItem={item}
-        ListHeaderComponent={
-          <SearchBar
-            placeholder="Search here..."
-            onChangeText={(e) => {
-              setSearch(e);
-              setOffset(10);
-            }}
-            value={search}
-          />
-        }
-        ListFooterComponent={footer}
-      />
-      {renderModal()}
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "10%",
+        }}
+      >
+        <Button title="Show Flashcards" onPress={toFlashCards} />
+        <CheckBox
+          center
+          title="Sort by Errors"
+          checked={errorSort}
+          onPress={() => {
+            setErrorSort(!errorSort);
+          }}
+        />
+      </View>
+      <View style={{ height: "90%" }}>
+        <FlatList
+          data={filteredList.slice(0, offset)}
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={itemSeperator}
+          enableEmptySections={true}
+          renderItem={itemComponent}
+          ListHeaderComponent={
+            <SearchBar
+              placeholder="Search here..."
+              onChangeText={(e) => {
+                setSearch(e);
+                setOffset(10);
+              }}
+              value={search}
+            />
+          }
+          ListFooterComponent={footer}
+        />
+      </View>
+      {renderFlashCardModal()}
+      {renderInfoModal()}
     </View>
   );
 };
@@ -163,6 +257,9 @@ const styles = StyleSheet.create({
   },
   wordBox: {
     backgroundColor: "lightblue",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 5,
     marginTop: 3,
     width: "100%",
@@ -184,6 +281,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  footerText: {
+    color: "white",
+    fontSize: 15,
+  },
+  dictWord: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  dictType: { fontStyle: "italic" },
+  wordDetail: { width: "80%" },
+  checkBoxContainer: { width: "20%" },
 });
 
 export default Dictionary;
