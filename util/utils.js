@@ -60,7 +60,7 @@ export const getPictures = function () {
   for (let i = 0; i < 4; i++) {
     pics.push(chooser());
   }
-  return pics;
+  return pics;   
 };
 
 // export const getPictures = function (picture_list) {
