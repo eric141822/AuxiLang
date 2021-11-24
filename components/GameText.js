@@ -65,20 +65,19 @@ const GamePicture = () => {
         style={{
           alignItems: "center",
           justifyContent: "center",
-          marginTop: 60,
+          marginTop: 50,
         }}
       >
         <Image source={pics[answer].src} style={styles.tinyLogo}></Image>
-        <Text style={styles.title}>{pics[answer].word.toUpperCase()}</Text>
       </View>
       <FlatList
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
-          marginLeft: 35,
-          paddingBottom: 50,
+          alignItems: "center",
+          paddingBottom: 30,
         }}
-        numColumns={2}
+        numColumns={1}
         data={pics}
         renderItem={({ item, index }) => (
           <TouchableOpacity
@@ -86,8 +85,7 @@ const GamePicture = () => {
               validate(item);
             }}
           >
-              <Text style={styles.title} key={index} >{item.word}</Text>
-           
+              <Text style={styles.title} key={index} >{item.word.toUpperCase()}</Text>
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id}
@@ -102,16 +100,23 @@ const styles = StyleSheet.create({
     backgroundColor: "orange",
   },
   title: {
-    textAlign: "center",
     fontWeight: "bold",
     color: "black",
-    fontSize: 30,
-    marginTop: 15,
+    fontSize: 25,
+    textAlign: "center",
+    borderWidth: 1,
+    borderColor: "#20232a",
+    borderRadius: 5,
+    backgroundColor: "white",
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    marginTop: 10,
+    width: 280,
   },
   tinyLogo: {
-    width: 150,
-    height: 150,
-    borderRadius: 20,
+    width: 250,
+    height: 200,
+    borderRadius: 10,
     margin: 10,
     resizeMode: "stretch",
   },
