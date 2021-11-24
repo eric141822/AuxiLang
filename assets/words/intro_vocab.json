@@ -11653,5 +11653,775 @@
     "definition": "having no measurable or otherwise determinable value",
     "type": "Adjective",
     "error": 0
+  },
+  {
+    "id": 1665,
+    "word": "antelope",
+    "definition": "any of several ruminants of the family Bovidae, chiefly of Africa and Asia, having permanent, hollow, unbranched horns.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1666,
+    "word": "beetle",
+    "definition": "any of numerous insects of the order Coleoptera, characterized by hard, horny forewings that cover and protect the membranous flight wings.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1667,
+    "word": "chimpanzee",
+    "definition": "a kind of ape.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1668,
+    "word": "coyote",
+    "definition": "Also called prairie wolf. a buffy-gray, wolflike canid, Canis latrans, of North America, distinguished from the wolf by its relatively small size and its slender build, large ears, and narrow muzzle.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1669,
+    "word": "crow",
+    "definition": "a kind of black bird.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1670,
+    "word": "dragonfly",
+    "definition": "a kind of bug with a long body, flys low when the air is humid.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1671,
+    "word": "flamingo",
+    "definition": "a kind of bird, notable for its pink color",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1672,
+    "word": "fly",
+    "definition": "a kind of bug, very common and usually very small",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1673,
+    "word": "grasshopper",
+    "definition": "a kind of bug, moves by leaping, usually found in bushes",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1674,
+    "word": "hippopotamus",
+    "definition": "an animal, official term for hippo",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1675,
+    "word": "hummingbird",
+    "definition": "a kind of bird, produced a humming sound using its wings.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1676,
+    "word": "koala",
+    "definition": "a kind of animal, only found in Australia",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1677,
+    "word": "ladybugs",
+    "definition": "a kind of bug, commonly red in color with black dots",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1678,
+    "word": "leopard",
+    "definition": "a kind of animal from the cat family, known for their famous pattern of fur.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1679,
+    "word": "lobster",
+    "definition": "a kind of ocean animal, their shell turns bright red when cooked.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1680,
+    "word": "panda",
+    "definition": "a kind of animal, extremely rare and endangered, known for thier black and white fur.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1681,
+    "word": "porcupine",
+    "definition": "a kind of animal covered with stiff, sharp, erectile spines or quills,",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1682,
+    "word": "raccoon",
+    "definition": "an animmal that has a masklike black stripe across the eyes, a sharp snout, a bushy, ringed tail, and very dexterous front paws,",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1683,
+    "word": "reindeer",
+    "definition": "a large deer.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1684,
+    "word": "rhinoceros",
+    "definition": "long term for rhino",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1685,
+    "word": "seahorse",
+    "definition": "a kind of ocean animal, the name comes from the combination of horse and fish.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1686,
+    "word": "sparrow",
+    "definition": "a kind of bird.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1687,
+    "word": "woodpecker",
+    "definition": "a kind of bird that is known to peck on wood.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1688,
+    "word": "bell pepper",
+    "definition": "a kind of sweet pepper, usually yellow, green or red in color.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1689,
+    "word": "cauliflower",
+    "definition": "a kind of vegetable.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1690,
+    "word": "chilli pepper",
+    "definition": "a kind of pepper, known to be spicy.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1691,
+    "word": "eggplant",
+    "definition": "a kind of vegetable, usually purple.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1692,
+    "word": "ginger",
+    "definition": "a kind of vegetable, commonly used in cooking.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1693,
+    "word": "grapes",
+    "definition": "a kind of fruit, usually purple or green.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1694,
+    "word": "jalapeno",
+    "definition": "a kind of pepper originated from Mexico, spicy",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1695,
+    "word": "kiwi",
+    "definition": "a kind of fruit, with fuzzy skin outside and green inside",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1696,
+    "word": "paprika",
+    "definition": "powder made from bell peppers.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1697,
+    "word": "peas",
+    "definition": "a kind of vegetable, plural for pea.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1698,
+    "word": "radish",
+    "definition": "a kind of vegetable, usually red.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1699,
+    "word": "soy beans",
+    "definition": "a kind of bean, usually made into soy sauce.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1700,
+    "word": "spinach",
+    "definition": "a kind of common vegetable",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1701,
+    "word": "sweetpotato",
+    "definition": "a kind of potato, sweet in flavour",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1702,
+    "word": "t shirt",
+    "definition": "a short sleeve shirt without collar",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1703,
+    "word": "longsleeve",
+    "definition": "a t-shirt with longsleeves",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1704,
+    "word": "pants",
+    "definition": "trousers.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1705,
+    "word": "shoes",
+    "definition": "what you wear on your feet when you go outside.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1706,
+    "word": "shorts",
+    "definition": "short pants.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1707,
+    "word": "polo",
+    "definition": "a short sleeved shirt with only a few buttons at the top.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1708,
+    "word": "blazer",
+    "definition": "a suit jacket.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1709,
+    "word": "hoodie",
+    "definition": "a thick, long sleeved shirt with hood.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1710,
+    "word": "slippers",
+    "definition": "shoes without laces and usually worn inside.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1711,
+    "word": "sandals",
+    "definition": "any of various low shoes or slippers.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1712,
+    "word": "tie",
+    "definition": "a knot, especially an ornamental one; bow.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1713,
+    "word": "bow tie",
+    "definition": "a knot, especially an ornamental one.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1714,
+    "word": "socks",
+    "definition": "usually worn with shoes to protect your feet.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1715,
+    "word": "sunglass",
+    "definition": "glasses to block strong sunlight.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1716,
+    "word": "glasses",
+    "definition": "device worn on face, usually to fix eye-sight.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1717,
+    "word": "washing machine",
+    "definition": "a machine used to do laundry (wash clothing).",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1718,
+    "word": "phone",
+    "definition": "a mobile device to make calls with.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1719,
+    "word": "air conditioner",
+    "definition": "a machine, usually used to cool down one's house.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1720,
+    "word": "laptop",
+    "definition": "a mobile/light-weight computer.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1721,
+    "word": "fridge",
+    "definition": "a machine that freezes food/drinks and stores them.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1722,
+    "word": "remote",
+    "definition": "a device used to control something, usually a TV.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1723,
+    "word": "gaming console",
+    "definition": "a machine to play video games with, such as a PlayStation",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1724,
+    "word": "light bulb",
+    "definition": "a device that emits light, usually installed on the ceiling.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1725,
+    "word": "headphone",
+    "definition": "a device that emits sound, usually covers one's ears.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1726,
+    "word": "calculator",
+    "definition": "a device used to calculate math.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1727,
+    "word": "speaker",
+    "definition": "a machine that emits sound.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1728,
+    "word": "hair dryer",
+    "definition": "a device used to dry your hair.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1729,
+    "word": "printer",
+    "definition": "a machine that prints out materials",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1730,
+    "word": "notebook",
+    "definition": "a book used to take notes",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1731,
+    "word": "sharpner",
+    "definition": "a device used to sharpen pencils.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1732,
+    "word": "scale",
+    "definition": "thin, thorny plates, usually found on a fish's skin.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1733,
+    "word": "compass",
+    "definition": "a device that always points North/South",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1734,
+    "word": "book",
+    "definition": "a collection of papers with text that is used for reading.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1735,
+    "word": "highlighter",
+    "definition": "a kind of pen used to highlight important points.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1736,
+    "word": "stapler",
+    "definition": "a device used to staple things.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1737,
+    "word": "folder",
+    "definition": "usually used to store multiple pieces of paper.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1738,
+    "word": "closet",
+    "definition": "used to store clothing.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1739,
+    "word": "couch",
+    "definition": "a kind of chair, usually large and comfortable.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1740,
+    "word": "table",
+    "definition": "a common furniture, flat.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1741,
+    "word": "flute",
+    "definition": "an instrument, a tube with a series of holes",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1742,
+    "word": "harp",
+    "definition": "a musical instrument consisting of a triangular frame formed by a soundbox, a pillar, and a curved neck, and having strings stretched between the soundbox and the neck that are plucked with the fingers.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1743,
+    "word": "xylophone",
+    "definition": "a musical instrument consisting of a graduated series of wooden bars, usually sounded by striking with small wooden hammers.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1744,
+    "word": "banjo",
+    "definition": "a musical instrument of the guitar family, having a circular body covered in front with tightly stretched parchment and played with the fingers or a plectrum.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1745,
+    "word": "saxophone",
+    "definition": "a musical wind instrument consisting of a conical, usually brass tube with keys or valves and a mouthpiece with one reed.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1746,
+    "word": "clarinet",
+    "definition": "a woodwind instrument in the form of a cylindrical tube with a single reed attached to its mouthpiece.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1747,
+    "word": "harmonica",
+    "definition": "a musical wind instrument consisting of a small rectangular case containing a set of metal reeds connected to a row of holes, over which the player places the mouth and exhales and inhales to produce the tones.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1748,
+    "word": "keyboard",
+    "definition": "any of various musical instruments played by means of a pianolike keyboard, as a piano, electric piano, or organ:",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1749,
+    "word": "cookies",
+    "definition": "a small, usually round and flat cake, the size of an individual portion, made from stiff, sweetened dough, and baked.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1750,
+    "word": "noodles",
+    "definition": "a narrow strip of unleavened egg dough that has been rolled thin and dried, boiled, and served alone or in soups, casseroles, etc.; a ribbon-shaped pasta.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1751,
+    "word": "chips",
+    "definition": "a very thin slice or small piece of food, candy, etc.:",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1752,
+    "word": "tacos",
+    "definition": "Mexican Cooking. a tortilla filled with various ingredients, as beans, rice, chopped meat, cheese, and tomatoes, and folded over in half or rolled into a loose cylinder shape:",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1753,
+    "word": "soccer",
+    "definition": "a form of football played between two teams of 11 players.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1754,
+    "word": "rugby",
+    "definition": "a form of football, played between two teams of 15 members each, that differs from soccer in freedom to carry the ball, block with the hands and arms, and tackle, and is characterized chiefly by continuous action and prohibition against the use of substitute players.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1755,
+    "word": "hockey",
+    "definition": "a game played on ice between two teams of six skaters each, the object being to score goals by shooting a puck into the opponents' cage using a stick with a wooden blade set at an obtuse angle to the shaft.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1756,
+    "word": "cricket",
+    "definition": "a game played with a ball and bat by two sides of usually 11 players each on a large field centering upon two wickets each defended by a batsman",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1757,
+    "word": "swimming",
+    "definition": "the act of a person or thing that swims.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1758,
+    "word": "archery",
+    "definition": "the art, practice, or skill of an archer.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1759,
+    "word": "baseball",
+    "definition": "a game of ball between two nine-player teams played usually for nine innings on a field that has as a focal point a diamond-shaped infield with a home plate and three other bases.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1760,
+    "word": "table tennis",
+    "definition": "a game resembling tennis, played on a table with small paddles and a hollow celluloid or plastic ball.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1761,
+    "word": "horse riding",
+    "definition": "a sport/competion of riding horses.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1762,
+    "word": "lacrosse",
+    "definition": "a game, originated by Indians of North America, in which two 10-member teams attempt to send a small ball into each other's netted goal, each player being equipped with a crosse or stick at the end of which is a netted pocket for catching, carrying, or throwing the ball.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1763,
+    "word": "judo",
+    "definition": "a method of defending oneself or fighting without the use of weapons, based on jujitsu.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1764,
+    "word": "bowling",
+    "definition": "any of several games in which players standing at one end of an alley or green heavy roll balls at standing objects or toward a mark at the other end.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1765,
+    "word": "ice hockey",
+    "definition": "a game played on ice between two teams of six skaters each, the object being to score goals by shooting a puck into the opponents' cage using a stick with a wooden blade set at an obtuse angle to the shaft.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1766,
+    "word": "athletics",
+    "definition": "(usually used with a plural verb) athletic sports, as running, rowing, or boxing.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1767,
+    "word": "fencing",
+    "definition": "the art, practice, or sport in which a thin and long sword is used for defense and attack.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1768,
+    "word": "cycle",
+    "definition": "a kind of sport/activity, riding bicycles",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1769,
+    "word": "jeep",
+    "definition": "a small, rugged motor vehicle.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1770,
+    "word": "airplane",
+    "definition": "a large vehicle used for transportation, flys in the sky.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1771,
+    "word": "submarine",
+    "definition": "a vehicle used for underwater exploration.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1772,
+    "word": "scooter",
+    "definition": "a small vehicle, an automated version of a bicycle.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1773,
+    "word": "bike",
+    "definition": "a small vehicle, short-term for bicycle.",
+    "type": "Noun",
+    "error": 0
+  },
+  {
+    "id": 1774,
+    "word": "key",
+    "definition": "a small device used to open locks.",
+    "type": "Noun",
+    "error": 0
   }
 ]
