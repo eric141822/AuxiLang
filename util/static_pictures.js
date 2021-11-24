@@ -222,7 +222,7 @@ const pictures = [
   {
     id: 80,
     src: require("../assets/pictures/all/jalepeno.jpg"),
-    word: "jalepeno",
+    word: "jalapeno",
   },
   { id: 81, src: require("../assets/pictures/all/kiwi.jpg"), word: "kiwi" },
   { id: 82, src: require("../assets/pictures/all/lemon.jpg"), word: "lemon" },
@@ -250,7 +250,7 @@ const pictures = [
   {
     id: 92,
     src: require("../assets/pictures/all/raddish.jpg"),
-    word: "raddish",
+    word: "radish",
   },
   {
     id: 93,
