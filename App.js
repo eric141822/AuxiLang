@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { StyleSheet, Text, View, Alert, Picture } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import wordList from "./assets/words/intro_vocab.json";
@@ -8,7 +8,9 @@ import wordList from "./assets/words/intro_vocab.json";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
+import GamePicture from "./components/GamePicture";
 import Hangman from "./components/Hangman";
+import GameText from "./components/GameText";
 /* TODO:
     Add dictionary page. DONE
     Format Home screen.
@@ -56,6 +58,8 @@ export default function App() {
             <Hangman {...props} wordList={wordList} isStore={storeErrors} />
           )}
         </Stack.Screen>
+        <Stack.Screen name="GamePicture" component={GamePicture} />
+        <Stack.Screen name="GameText" component={GameText} />
       </Stack.Navigator>
     </NavigationContainer>
   );
