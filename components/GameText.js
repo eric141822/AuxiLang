@@ -68,6 +68,7 @@ const GamePicture = () => {
           marginTop: 60,
         }}
       >
+        <Image source={pics[answer].src} style={styles.tinyLogo}></Image>
         <Text style={styles.title}>{pics[answer].word.toUpperCase()}</Text>
       </View>
       <FlatList
@@ -85,7 +86,8 @@ const GamePicture = () => {
               validate(item);
             }}
           >
-            <Image source={item.src} key={index} style={styles.tinyLogo} />
+              <Text style={styles.title} key={index} >{item.word}</Text>
+           
           </TouchableOpacity>
         )}
         keyExtractor={(item) => item.id}
