@@ -20,7 +20,7 @@ import { getPictures } from "../util/utils";
 const wordList = require("../assets/data/picture_list.json");
 
 const wrongAns = () =>
-  Alert.alert("Wrong Answer", "The Answer is wrong", [
+  Alert.alert("Wrong Answer", "Please try again!", [
     {
       text: "Cancel",
       onPress: () => console.log("Cancel Pressed"),
@@ -30,7 +30,7 @@ const wrongAns = () =>
   ]);
 
   const correctAns = () =>
-  Alert.alert("Correct Answer", "The Answer is Correct", [
+  Alert.alert("Correct Answer", "Nice job!", [
     {
       text: "Cancel",
       onPress: () => console.log("Cancel Pressed"),
@@ -72,7 +72,7 @@ const GamePicture = () => {
           marginTop: 60,
         }}
       >
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+        <Text style={styles.title}>
           {pics[answer].word.toUpperCase()}
         </Text>
       </View>
@@ -103,14 +103,14 @@ const GamePicture = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "orange",
   },
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    marginTop: 50,
     color: "black",
-    fontSize: 50,
+    fontSize: 30,
+    marginTop: 15,
   },
   tinyLogo: {
     width: 150,
