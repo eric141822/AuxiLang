@@ -152,7 +152,7 @@ const Dictionary = ({ navigation, wordList }) => {
     return (
       <View style={styles.wordBox}>
         <View style={styles.wordDetail}>
-          <Text style={styles.dictWord}>{item.word}</Text>
+          <Text style={styles.dictWord}>{item.word.toUpperCase()}</Text>
           <Text style={styles.dictType}>{item.type}</Text>
           <Text>{item.definition}</Text>
           <Text>No. of errors made: {item.error}</Text>
