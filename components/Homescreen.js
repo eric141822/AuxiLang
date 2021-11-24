@@ -129,6 +129,21 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
         </View>
       </View>
+      <View style={styles.row}>
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/guess_what.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Guess The Word"
+            onPress={() => {
+              navigation.navigate("GameText");
+            }}
+          />
+        </View>
+      </View>
       {renderInfoModal()}
     </View>
   );
