@@ -11,6 +11,7 @@ import wordList from "./assets/words/intro_vocab.json";
 import Acquisition from "./components/Acquisition";
 import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
+import GamePicture from "./components/GamePicture";
 import Hangman from "./components/Hangman";
 import RootStack from "./components/RootStack";
 import DrawerContent from "./components/DrawerContent";
@@ -18,6 +19,7 @@ import DrawerContent from "./components/DrawerContent";
 import { AuthContext } from "./util/context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import GameText from "./components/GameText";
 /* TODO:
     Add dictionary page. DONE
     Format Home screen.
