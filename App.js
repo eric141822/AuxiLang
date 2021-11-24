@@ -10,6 +10,7 @@ import Homescreen from "./components/Homescreen";
 import Dictionary from "./components/Dictionary";
 import GamePicture from "./components/GamePicture";
 import Hangman from "./components/Hangman";
+import GameText from "./components/GameText";
 /* TODO:
     Add dictionary page. DONE
     Format Home screen.
@@ -58,6 +59,7 @@ export default function App() {
           )}
         </Stack.Screen>
         <Stack.Screen name="GamePicture" component={GamePicture} />
+        <Stack.Screen name="GameText" component={GameText} />
       </Stack.Navigator>
     </NavigationContainer>
   );
