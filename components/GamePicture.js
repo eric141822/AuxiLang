@@ -17,7 +17,6 @@ import { ActivityIndicator } from "react-native-paper";
 import titles from "../assets/data/picture_list.json";
 import { getPictures } from "../util/utils";
 
-
 const wordList = require("../assets/data/picture_list.json");
 
 const wrongAns = () =>
@@ -30,27 +29,43 @@ const wrongAns = () =>
     { text: "OK", onPress: () => console.log("OK Pressed") },
   ]);
 
+const getAnswerIdx = () => {
+  return (Math.random() * 4) | 0;
+};
+
 const GamePicture = () => {
-  const [minVal, setMinVal] = useState(0);
-  const [maxVal, setMaxVal] = useState(3);
-  const [rand, setRand] = useState(0);
+  //   const [minVal, setMinVal] = useState(0);
+  //   const [maxVal, setMaxVal] = useState(3);
+  //   const [rand, setRand] = useState(0);
 
   const [pics, setPics] = useState(getPictures());
+  const [answer, setAnswer] = useState(getAnswerIdx());
 
-  const handleRandNum = () => {
-    setRand(Math.floor(Math.random() * (maxVal - minVal + 1) + minVal));
+  //   const [answer, setAnswer] = useState(getAnswer(pics));
+  //   const handleRandNum = () => {
+  //     setRand(Math.floor(Math.random() * (maxVal - minVal + 1) + minVal));
+  //   };
+
+  const validate = (item) => {
+    // console.log(item.word);
+    if (item.word === pics[answer].word) {
+      console.log("Correct!");
+      setPics(getPictures());
+      setAnswer(getAnswerIdx());
+    } else {
+      wrongAns();
+      setPics(getPictures());
+      setAnswer(getAnswerIdx());
+    }
   };
-
-  var a=[]
-  for (i=0; i<4;i++){
-    a.push(pics[i].id)
-    
-  }
-  console.log(a)
+  //   var a = [];
+  //   for (i = 0; i < 4; i++) {
+  //     a.push(pics[i].id);
+  //   }
+  //   console.log(a);
   return (
     <View style={styles.container}>
-  
-      <FlatList
+      {/* <FlatList
         data={titles}
         
         showsVerticalScrollIndicator={false}
@@ -58,7 +73,18 @@ const GamePicture = () => {
         <Text style={styles.title}>{item.all[a[rand]]}</Text>
       }
         keyExtractor={(item, index) => index.toString()}
-      />
+      /> */}
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 60,
+        }}
+      >
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+          {pics[answer].word.toUpperCase()}
+        </Text>
+      </View>
       <FlatList
         contentContainerStyle={{
           flexGrow: 1,
@@ -69,10 +95,13 @@ const GamePicture = () => {
         numColumns={2}
         data={pics}
         renderItem={({ item, index }) => (
-          <TouchableOpacity onPress={wrongAns}>
+          <TouchableOpacity
+            onPress={() => {
+              validate(item);
+            }}
+          >
             <Image source={item.src} key={index} style={styles.tinyLogo} />
           </TouchableOpacity>
-         
         )}
         keyExtractor={(item) => item.id}
       />

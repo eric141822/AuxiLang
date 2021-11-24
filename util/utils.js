@@ -1,5 +1,5 @@
-import words from "../assets/words/data2.json";
-import dictionary from "../assets/combines";
+// import words from "../assets/words/data2.json";
+// import dictionary from "../assets/combines";
 // import pictures from "../assets/data/picture_list.json";
 import pictures from "./static_pictures";
 
@@ -52,7 +52,7 @@ export const getPictures = function () {
       var index = Math.floor(Math.random() * copy.length);
       var item = copy[index];
       copy.splice(index, 1);
-      console.log(index)
+      //   console.log(index);
       return item;
     };
   }
@@ -61,8 +61,8 @@ export const getPictures = function () {
   for (let i = 0; i < 4; i++) {
     pics.push(chooser());
   }
-  console.log(pics)
-  return pics;   
+  //   console.log(pics);
+  return pics;
 };
 
 // export const getPictures = function (picture_list) {
