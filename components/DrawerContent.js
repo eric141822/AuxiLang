@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Drawer } from "react-native-paper";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
+
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { CommonActions } from "@react-navigation/native";
 
@@ -15,16 +17,26 @@ const DrawerContent = ({ navigation }) => {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               label="Home"
+              icon={({ color, size }) => (
+                <Ionicons color={color} size={size} name="home-outline" />
+              )}
               onPress={() => {
                 navigation.navigate("Home");
               }}
             />
             <DrawerItem
               label="Dictionary"
+              icon={({ color, size }) => (
+                <Ionicons color={color} size={size} name="book" />
+              )}
               onPress={() => {
                 navigation.navigate("Dictionary");
               }}
             />
+          </Drawer.Section>
+        </View>
+        <View style={styles.drawerContent}>
+          <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               label="Acquisition"
               onPress={() => {
@@ -51,6 +63,9 @@ const DrawerContent = ({ navigation }) => {
       <Drawer.Section style={styles.bottomDrawerSection}>
         <DrawerItem
           label="Sign Out"
+          icon={({ color, size }) => (
+            <FontAwesome name="sign-out" size={size} color={color} />
+          )}
           onPress={() => {
             signOut();
           }}
