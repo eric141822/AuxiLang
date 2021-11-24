@@ -29,7 +29,7 @@ const wrongAns = () =>
     { text: "OK", onPress: () => console.log("OK Pressed") },
   ]);
 
-  const correctAns = () =>
+const correctAns = () =>
   Alert.alert("Correct Answer", "Nice job!", [
     {
       text: "Cancel",
@@ -44,16 +44,13 @@ const getAnswerIdx = () => {
 };
 
 const GamePicture = () => {
- 
   const [pics, setPics] = useState(getPictures());
   const [answer, setAnswer] = useState(getAnswerIdx());
-
-
 
   const validate = (item) => {
     // console.log(item.word);
     if (item.word === pics[answer].word) {
-      correctAns()
+      correctAns();
       console.log("Correct!");
       setPics(getPictures());
       setAnswer(getAnswerIdx());
@@ -64,7 +61,6 @@ const GamePicture = () => {
 
   return (
     <View style={styles.container}>
-     
       <View
         style={{
           alignItems: "center",
@@ -72,9 +68,7 @@ const GamePicture = () => {
           marginTop: 60,
         }}
       >
-        <Text style={styles.title}>
-          {pics[answer].word.toUpperCase()}
-        </Text>
+        <Text style={styles.title}>{pics[answer].word.toUpperCase()}</Text>
       </View>
       <FlatList
         contentContainerStyle={{
@@ -117,6 +111,7 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 20,
     margin: 10,
+    resizeMode: "stretch",
   },
 });
 
