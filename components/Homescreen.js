@@ -124,7 +124,22 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Pictionary"
             onPress={() => {
-              // navigation.navigate("Dictionary");
+              navigation.navigate("GamePicture");
+            }}
+          />
+        </View>
+      </View>
+      <View style={styles.row}>
+        <View style={styles.gamePanel}>
+          <Image
+            style={styles.image}
+            source={require("../assets/guess_what.png")}
+          />
+          <Button
+            buttonStyle={styles.btn}
+            title="Guess The Word"
+            onPress={() => {
+              navigation.navigate("GameText");
             }}
           />
         </View>
@@ -137,7 +152,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#93D3F5",
     alignItems: "center",
     justifyContent: "center",
   },
