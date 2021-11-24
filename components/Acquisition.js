@@ -16,10 +16,6 @@ import {
 } from "react-native-paper";
 import Modal from "react-native-modal";
 
-/* 
-    TODO: 
-    presumebly unlimited lives for word acquisition as it's supposed to be the easiest game.
-*/
 const Acquisition = ({ wordList, navigation, isStore }) => {
   const [question, setQuestion] = isStore
     ? useState(getQuestionAcqIntro(wordList))
@@ -43,7 +39,7 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
         </View>
       ),
     });
-  });
+  }, [info]);
   const renderInfoModal = function () {
     return (
       <View>
@@ -187,7 +183,7 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },

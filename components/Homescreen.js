@@ -8,9 +8,10 @@ import {
   Paragraph,
 } from "react-native-paper";
 import Modal from "react-native-modal";
-
+import { AuthContext } from "../util/context";
 const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   const [info, setInfo] = useState(false);
+  const { signOut } = React.useContext(AuthContext);
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -90,13 +91,13 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
         <View style={styles.gamePanel}>
           <Image
             style={styles.image}
-            source={require("../assets/dictionaryIcon.png")}
+            source={require("../assets/guess_what.png")}
           />
           <Button
             buttonStyle={styles.btn}
-            title="Dictionary"
+            title="Guess The Word"
             onPress={() => {
-              navigation.navigate("Dictionary");
+              navigation.navigate("GameText");
             }}
           />
         </View>
@@ -122,28 +123,22 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
           <Button
             buttonStyle={styles.btn}
-            title="Pictionary"
+            title="Guess the Picture"
             onPress={() => {
               navigation.navigate("GamePicture");
             }}
           />
         </View>
       </View>
-      <View style={styles.row}>
-        <View style={styles.gamePanel}>
-          <Image
-            style={styles.image}
-            source={require("../assets/guess_what.png")}
-          />
-          <Button
-            buttonStyle={styles.btn}
-            title="Guess The Word"
-            onPress={() => {
-              navigation.navigate("GameText");
-            }}
-          />
-        </View>
-      </View>
+      {/* <View style={{ ...styles.row, marginTop: 30 }}>
+        <Button
+          title="Sign Out"
+          buttonStyle={{ width: 300, borderRadius: 30 }}
+          onPress={() => {
+            signOut();
+          }}
+        />
+      </View> */}
       {renderInfoModal()}
     </View>
   );
@@ -152,12 +147,12 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#93D3F5",
+    backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },
   row: {
-    flex: 1,
+    // flex: 1,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
