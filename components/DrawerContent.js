@@ -57,6 +57,26 @@ const DrawerContent = ({ navigation }) => {
                 );
               }}
             />
+            <DrawerItem
+              label="Guess the Picture"
+              onPress={() => {
+                navigation.dispatch(
+                  CommonActions.reset({
+                    routes: [{ name: "GamePicture" }],
+                  })
+                );
+              }}
+            />
+            <DrawerItem
+              label="Guess the Word"
+              onPress={() => {
+                navigation.dispatch(
+                  CommonActions.reset({
+                    routes: [{ name: "GameText" }],
+                  })
+                );
+              }}
+            />
           </Drawer.Section>
         </View>
       </DrawerContentScrollView>

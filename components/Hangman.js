@@ -13,6 +13,13 @@ import {
   getQuestionHangmanIntroOnlyError,
 } from "../util/utils";
 import { Puzzles } from "../assets/puzzles/index";
+import {
+  IconButton,
+  Card,
+  Button as PaperButton,
+  Paragraph,
+} from "react-native-paper";
+import Modal from "react-native-modal";
 class HangmanGame extends React.Component {
   constructor(props) {
     super(props);
@@ -24,19 +31,72 @@ class HangmanGame extends React.Component {
       usedLetters: [],
       lettersLeft: [],
       input: "",
-      score: 0, 
+      score: 0,
       puzzle: null,
+      info: false,
     };
     this.init = this.init.bind(this);
+    this.setInfoPanel = this.setInfoPanel.bind(this);
+    // this.renderInfoModal = this.renderInfoModal.bind(this);
     // this.puzzles = new Puzzles();
   }
   componentDidMount() {
     this.init();
+    this.setInfoPanel();
   }
   static navigationOptions = {
     title: "Back",
   };
+  setInfoPanel() {
+    this.props.navigation.setOptions({
+      headerRight: () => (
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <IconButton
+            icon="information-outline"
+            size={25}
+            onPress={() => {
+              this.setState({ ...this.state, info: !this.state.info });
+            }}
+          />
+        </View>
+      ),
+    });
+  }
+  renderInfoModal() {
+    return (
+      <View>
+        <Modal
+          isVisible={this.state.info}
+          onBackdropPress={() => {
+            this.setState({ ...this.state, info: !this.state.info });
+          }}
+        >
+          <Card>
+            <Card.Title title="Info" />
+            <Card.Content>
+              <Paragraph>This is a classic Hangman game.</Paragraph>
+              <Paragraph>
+                You are given a hint/definition of the word, use the keyboard
+                below to guess an alphabet.
+              </Paragraph>
+              <Paragraph>You only have 7 guesses before you lose!</Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <PaperButton
+                onPress={() => {
+                  this.setState({ ...this.state, info: !this.state.info });
+                }}
+              >
+                Cancel
+              </PaperButton>
+            </Card.Actions>
+          </Card>
+        </Modal>
+      </View>
+    );
+  }
   init() {
+    // console.log(this.props.navigation);
     // let puzzle = this.puzzles.getRandom();
     let puzzle = this.props.isStore
       ? getQuestionHangmanIntro(this.props.wordList)
@@ -91,15 +151,14 @@ class HangmanGame extends React.Component {
         { cancelable: false }
       );
     }
-    if(wrong == 7){
+    if (wrong == 7) {
       Alert.alert(
         "You got it Wrong!",
-        "Answer is "+"'"+answer.toLowerCase()+"'", 
-        [{text: "OK", onPress: () => this.init() }],
-        { cancelable: false}
-      )
+        "Answer is " + "'" + answer.toLowerCase() + "'",
+        [{ text: "OK", onPress: () => this.init() }],
+        { cancelable: false }
+      );
     }
-
 
     this.setState({
       usedLetters: usedLetters,
@@ -126,6 +185,9 @@ class HangmanGame extends React.Component {
 
     return (
       <View style={styles.container}>
+        <View style={{ alignItems: "center" }}>
+          <Text>Score: {this.state.score}</Text>
+        </View>
         <View style={styles.hanger}>
           <View style={styles.rectangle1} />
           <View style={styles.rectangle2} />
@@ -139,11 +201,13 @@ class HangmanGame extends React.Component {
           {this.state.wrong > 5 ? Lleg : null}
           {this.state.wrong > 6 ? Rleg : null}
         </View>
+
         {this.renderDashes()}
         <View style={styles.hintContainer}>
           <Text style={styles.hintText}>Hint : {this.state.hint}</Text>
         </View>
         {this.renderKeyBoard()}
+        {this.renderInfoModal()}
       </View>
     );
   }
@@ -218,8 +282,14 @@ class HangmanGame extends React.Component {
   }
 }
 
-const Hangman = ({ wordList, isStore }) => {
-  return <HangmanGame wordList={wordList} isStore={isStore} />;
+const Hangman = ({ navigation, wordList, isStore }) => {
+  return (
+    <HangmanGame
+      navigation={navigation}
+      wordList={wordList}
+      isStore={isStore}
+    />
+  );
 };
 
 export default Hangman;

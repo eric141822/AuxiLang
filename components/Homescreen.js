@@ -91,13 +91,13 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
         <View style={styles.gamePanel}>
           <Image
             style={styles.image}
-            source={require("../assets/dictionaryIcon.png")}
+            source={require("../assets/guess_what.png")}
           />
           <Button
             buttonStyle={styles.btn}
-            title="Dictionary"
+            title="Guess The Word"
             onPress={() => {
-              navigation.navigate("Dictionary");
+              navigation.navigate("GameText");
             }}
           />
         </View>
@@ -123,24 +123,9 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
           <Button
             buttonStyle={styles.btn}
-            title="Pictionary"
+            title="Guess the Picture"
             onPress={() => {
               navigation.navigate("GamePicture");
-            }}
-          />
-        </View>
-      </View>
-      <View style={styles.row}>
-        <View style={styles.gamePanel}>
-          <Image
-            style={styles.image}
-            source={require("../assets/guess_what.png")}
-          />
-          <Button
-            buttonStyle={styles.btn}
-            title="Guess The Word"
-            onPress={() => {
-              navigation.navigate("GameText");
             }}
           />
         </View>
@@ -162,7 +147,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#93D3F5",
+    backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },
