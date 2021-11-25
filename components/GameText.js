@@ -46,7 +46,7 @@ const getAnswerIdx = () => {
   return (Math.random() * 4) | 0;
 };
 
-const GamePicture = ({ navigation }) => {
+const GamePicture = ({ navigation, wordList }) => {
   const [pics, setPics] = useState(getPictures());
   const [answer, setAnswer] = useState(getAnswerIdx());
   const [info, setInfo] = useState(false);
@@ -62,6 +62,11 @@ const GamePicture = ({ navigation }) => {
     } else {
       wrongAns();
       setScore(score - 1);
+      wordList = wordList.map((i) =>
+        i.word.toLowerCase() === item.word.toLowerCase()
+          ? { ...i, error: i.error++ }
+          : i
+      );
     }
   };
 
