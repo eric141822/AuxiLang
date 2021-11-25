@@ -9,9 +9,10 @@ import {
 } from "react-native-paper";
 import Modal from "react-native-modal";
 import { AuthContext } from "../util/context";
+import { LinearGradient } from "expo-linear-gradient";
+
 const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   const [info, setInfo] = useState(false);
-  const { signOut } = React.useContext(AuthContext);
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -65,6 +66,16 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   };
   return (
     <View style={styles.container}>
+      <LinearGradient
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "100%",
+        }}
+        colors={["#F57F11", "#C92828"]}
+      />
       {/* <Button
         title="test"
         onPress={() => {
@@ -147,7 +158,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "orange",
+    // backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },

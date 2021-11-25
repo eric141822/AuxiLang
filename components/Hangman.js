@@ -13,6 +13,8 @@ import {
   getQuestionHangmanIntroOnlyError,
 } from "../util/utils";
 import { Puzzles } from "../assets/puzzles/index";
+import { LinearGradient } from "expo-linear-gradient";
+
 import {
   IconButton,
   Card,
@@ -185,6 +187,16 @@ class HangmanGame extends React.Component {
 
     return (
       <View style={styles.container}>
+        <LinearGradient
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            height: "100%",
+          }}
+          colors={["#F57F11", "#C92828"]}
+        />
         <View style={{ alignItems: "center" }}>
           <Text>Score: {this.state.score}</Text>
         </View>

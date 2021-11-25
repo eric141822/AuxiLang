@@ -12,6 +12,7 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 import {
   IconButton,
@@ -119,6 +120,16 @@ const GamePicture = ({ navigation, wordList }) => {
 
   return (
     <View style={styles.container}>
+      <LinearGradient
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "100%",
+        }}
+        colors={["#F57F11", "#C92828"]}
+      />
       <View style={{ marginTop: 30, alignItems: "center" }}>
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>Score: {score}</Text>
       </View>

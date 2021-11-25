@@ -18,6 +18,7 @@ import {
 import FlashCardPage from "./FlashCardPage";
 import Modal from "react-native-modal";
 // import intro_vocab from "../assets/words/intro_vocab.json";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Dictionary = ({ navigation, wordList }) => {
   const [flashCardWords, setFlashCardWords] = useState([]);

@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { Button } from "react-native-elements";
 import { AuthContext } from "../util/context";
+import { LinearGradient } from "expo-linear-gradient";
+
 const SignIn = ({ navigation }) => {
   const [data, setData] = React.useState({
     username: "",
@@ -54,6 +56,16 @@ const SignIn = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <LinearGradient
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "100%",
+        }}
+        colors={["#F57F11", "#C92828"]}
+      />
       <View style={styles.inputContainer}>
         <Text>Username</Text>
         <TextInput
