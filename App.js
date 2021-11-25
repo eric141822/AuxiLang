@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { StyleSheet, View, Alert, ActivityIndicator } from "react-native";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import wordList from "./assets/words/intro_vocab.json";
@@ -160,10 +159,10 @@ export default function App() {
               )}
             </Drawer.Screen>
             <Drawer.Screen name="GamePicture">
-              {(props) => <GamePicture {...props} isStore={storeErrors} />}
+              {(props) => <GamePicture {...props} wordList={wordList} />}
             </Drawer.Screen>
             <Drawer.Screen name="GameText">
-              {(props) => <GameText {...props} isStore={storeErrors} />}
+              {(props) => <GameText {...props} wordList={wordList} />}
             </Drawer.Screen>
           </Drawer.Navigator>
         ) : (
