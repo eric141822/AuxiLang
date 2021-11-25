@@ -15,6 +15,7 @@ import {
   Paragraph,
 } from "react-native-paper";
 import Modal from "react-native-modal";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Acquisition = ({ wordList, navigation, isStore }) => {
   const [question, setQuestion] = isStore
@@ -160,6 +161,16 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
   };
   return (
     <View style={styles.container}>
+      <LinearGradient
+        style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: 0,
+          height: "100%",
+        }}
+        colors={["#F57F11", "#C92828"]}
+      />
       <View style={{ marginTop: 10 }}>
         <Text style={{ fontSize: 20 }}>Score: {score}</Text>
       </View>
