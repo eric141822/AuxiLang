@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  Image,
+} from "react-native";
 import {
   randomWord,
   questionAcq,
@@ -68,6 +74,18 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
               </PaperButton>
             </Card.Actions>
           </Card>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+            }}
+          >
+            <Image
+              source={require("../assets/Logos/Mascot1.png")}
+              style={{ width: 200, height: 200 }}
+            />
+          </View>
         </Modal>
       </View>
     );
@@ -171,6 +189,16 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
         }}
         colors={["#F57F11", "#C92828"]}
       />
+      {/* <ImageBackground
+        source={require("../assets/Logos/Background.png")}
+        style={{
+          width: "100%",
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        resizeMode="cover"
+      > */}
       <View style={{ marginTop: 10 }}>
         <Text style={{ fontSize: 20 }}>Score: {score}</Text>
       </View>
@@ -187,6 +215,7 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
       {renderInfoModal()}
       <Text style={styles.hintText}>Hint: {question.hint}</Text>
       {renderKeyBoard()}
+      {/* </ImageBackground> */}
     </View>
   );
 };
@@ -194,7 +223,6 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },
