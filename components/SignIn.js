@@ -66,7 +66,7 @@ const SignIn = ({ navigation }) => {
       >
         <Image
           style={{ resizeMode: "contain", height: 175, width: 175 }}
-          source={require("../assets/Logo-removebg-preview.png")}
+          source={require("../assets/Logo-noBG.png")}
         />
       </View>
       <View style={styles.inputContainer}>
