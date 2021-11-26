@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  ImageBackground,
+} from "react-native";
 import { Button, Image } from "react-native-elements";
 import { AuthContext } from "../util/context";
 import { LinearGradient } from "expo-linear-gradient";
@@ -66,7 +72,7 @@ const SignIn = ({ navigation }) => {
       >
         <Image
           style={{ resizeMode: "contain", height: 175, width: 175 }}
-          source={require("../assets/Logo-noBG.png")}
+          source={require("../assets/Logos/Logo.png")}
         />
       </View>
       <View style={styles.inputContainer}>

@@ -7,6 +7,7 @@ import {
   Button,
   TouchableHighlight,
   Alert,
+  Image,
 } from "react-native";
 import {
   getQuestionHangmanIntro,
@@ -93,6 +94,18 @@ class HangmanGame extends React.Component {
               </PaperButton>
             </Card.Actions>
           </Card>
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+            }}
+          >
+            <Image
+              source={require("../assets/Logos/Mascot1.png")}
+              style={{ width: 200, height: 200 }}
+            />
+          </View>
         </Modal>
       </View>
     );

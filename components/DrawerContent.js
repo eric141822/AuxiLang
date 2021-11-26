@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { Drawer } from "react-native-paper";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
@@ -76,6 +76,16 @@ const DrawerContent = ({ navigation }) => {
                   })
                 );
               }}
+            />
+          </Drawer.Section>
+        </View>
+        <View style={styles.drawerContent}>
+          <Drawer.Section
+            style={{ ...styles.drawerSection, alignItems: "center" }}
+          >
+            <Image
+              source={require("../assets/Logos/Mascot2.png")}
+              style={{ width: 200, height: 200 }}
             />
           </Drawer.Section>
         </View>
