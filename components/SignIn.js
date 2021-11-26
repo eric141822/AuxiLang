@@ -1,15 +1,6 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  Platform,
-  StyleSheet,
-  StatusBar,
-  Alert,
-} from "react-native";
-import { Button } from "react-native-elements";
+import React from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
+import { Button, Image } from "react-native-elements";
 import { AuthContext } from "../util/context";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -56,7 +47,7 @@ const SignIn = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <LinearGradient
+      {/* <LinearGradient
         style={{
           position: "absolute",
           left: 0,
@@ -65,7 +56,19 @@ const SignIn = ({ navigation }) => {
           height: "100%",
         }}
         colors={["#F57F11", "#C92828"]}
-      />
+      /> */}
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: 30,
+        }}
+      >
+        <Image
+          style={{ resizeMode: "contain", height: 175, width: 175 }}
+          source={require("../assets/Logo-removebg-preview.png")}
+        />
+      </View>
       <View style={styles.inputContainer}>
         <Text>Username</Text>
         <TextInput
@@ -105,7 +108,7 @@ export default SignIn;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "orange",
+    // backgroundColor: "orange",
     alignItems: "center",
     justifyContent: "center",
   },
