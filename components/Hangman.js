@@ -151,9 +151,6 @@ class HangmanGame extends React.Component {
       puzzle = this.state.puzzle;
     if (answer.toUpperCase().indexOf(letter) == -1) {
       wrong++;
-      if (score > 0) {
-        score--;
-      }
     } else {
       answer
         .toUpperCase()
@@ -162,11 +159,12 @@ class HangmanGame extends React.Component {
           if (value == letter) {
             lettersLeft[index] = letter;
             correct++;
-            score++;
+            
           }
         });
     }
     if (correct == answer.length) {
+      score++;
       Alert.alert(
         "You win",
         "You have gussed the correct answer",
