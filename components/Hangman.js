@@ -23,6 +23,13 @@ import {
   Paragraph,
 } from "react-native-paper";
 import Modal from "react-native-modal";
+
+const tmp = [
+  { word: "giraffe", definition: "an animal with a long neck" },
+  { word: "textbook", definition: "a book used for learning" },
+  { word: "car", definition: "a vehicle that drives on the road" },
+];
+
 class HangmanGame extends React.Component {
   constructor(props) {
     super(props);
@@ -75,7 +82,7 @@ class HangmanGame extends React.Component {
           }}
         >
           <Card>
-            <Card.Title title="Info" />
+            <Card.Title title="Auxi's Tips:" />
             <Card.Content>
               <Paragraph>This is a classic Hangman game.</Paragraph>
               <Paragraph>
@@ -113,9 +120,10 @@ class HangmanGame extends React.Component {
   init() {
     // console.log(this.props.navigation);
     // let puzzle = this.puzzles.getRandom();
-    let puzzle = this.props.isStore
-      ? getQuestionHangmanIntro(this.props.wordList)
-      : getQuestionHangmanIntroOnlyError(this.props.wordList);
+    // let puzzle = this.props.isStore
+    //   ? getQuestionHangmanIntro(this.props.wordList)
+    //   : getQuestionHangmanIntroOnlyError(this.props.wordList);
+    let puzzle = tmp[(Math.random() * tmp.length) | 0];
     let answer = puzzle.word.replace(/[^a-zA-Z]/gim, " ").trim();
     let hint = puzzle.definition;
     let lettersLeft = Array(answer.length);
@@ -435,7 +443,6 @@ const styles = StyleSheet.create({
   },
   keyboard: {
     flex: 2,
-    backgroundColor: "#fff",
     justifyContent: "center",
     flexDirection: "column",
   },

@@ -57,7 +57,7 @@ const Dictionary = ({ navigation, wordList }) => {
           }}
         >
           <Card>
-            <Card.Title title="Info" />
+            <Card.Title title="Auxi's Tips:" />
             <Card.Content>
               <Paragraph>
                 Type in the search bar to search for a certain word.
