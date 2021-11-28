@@ -62,7 +62,7 @@ const DrawerContent = ({ navigation }) => {
               onPress={() => {
                 navigation.dispatch(
                   CommonActions.reset({
-                    routes: [{ name: "GamePicture" }],
+                    routes: [{ name: "Guess the Picture" }],
                   })
                 );
               }}
@@ -72,7 +72,7 @@ const DrawerContent = ({ navigation }) => {
               onPress={() => {
                 navigation.dispatch(
                   CommonActions.reset({
-                    routes: [{ name: "GameText" }],
+                    routes: [{ name: "Guess the Word" }],
                   })
                 );
               }}

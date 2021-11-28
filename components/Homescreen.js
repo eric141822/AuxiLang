@@ -9,6 +9,7 @@ import {
 } from "react-native-paper";
 import Modal from "react-native-modal";
 import { LinearGradient } from "expo-linear-gradient";
+import { CommonActions } from "@react-navigation/native";
 
 const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
   const [info, setInfo] = useState(false);
@@ -98,7 +99,12 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Alphabet Acquisition"
             onPress={() => {
-              navigation.navigate("Acquisition");
+              //   navigation.navigate("Acquisition");
+              navigation.dispatch(
+                CommonActions.reset({
+                  routes: [{ name: "Acquisition" }],
+                })
+              );
             }}
           />
         </View>
@@ -109,9 +115,14 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
           <Button
             buttonStyle={styles.btn}
-            title="Guess The Word"
+            title="Guess the Word"
             onPress={() => {
-              navigation.navigate("GameText");
+              //   navigation.navigate("GameText");
+              navigation.dispatch(
+                CommonActions.reset({
+                  routes: [{ name: "Guess the Word" }],
+                })
+              );
             }}
           />
         </View>
@@ -126,7 +137,11 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Hang-man"
             onPress={() => {
-              navigation.navigate("Hangman");
+              navigation.dispatch(
+                CommonActions.reset({
+                  routes: [{ name: "Hangman" }],
+                })
+              );
             }}
           />
         </View>
@@ -139,7 +154,11 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
             buttonStyle={styles.btn}
             title="Guess the Picture"
             onPress={() => {
-              navigation.navigate("GamePicture");
+              navigation.dispatch(
+                CommonActions.reset({
+                  routes: [{ name: "Guess the Picture" }],
+                })
+              );
             }}
           />
         </View>

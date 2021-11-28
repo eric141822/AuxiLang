@@ -120,10 +120,10 @@ class HangmanGame extends React.Component {
   init() {
     // console.log(this.props.navigation);
     // let puzzle = this.puzzles.getRandom();
-    // let puzzle = this.props.isStore
-    //   ? getQuestionHangmanIntro(this.props.wordList)
-    //   : getQuestionHangmanIntroOnlyError(this.props.wordList);
-    let puzzle = tmp[(Math.random() * tmp.length) | 0];
+    let puzzle = this.props.isStore
+      ? getQuestionHangmanIntro(this.props.wordList)
+      : getQuestionHangmanIntroOnlyError(this.props.wordList);
+    // let puzzle = tmp[(Math.random() * tmp.length) | 0];
     let answer = puzzle.word.replace(/[^a-zA-Z]/gim, " ").trim();
     let hint = puzzle.definition;
     let lettersLeft = Array(answer.length);

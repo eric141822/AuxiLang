@@ -158,10 +158,10 @@ export default function App() {
                 <Hangman {...props} wordList={wordList} isStore={storeErrors} />
               )}
             </Drawer.Screen>
-            <Drawer.Screen name="GamePicture">
+            <Drawer.Screen name="Guess the Picture">
               {(props) => <GamePicture {...props} wordList={wordList} />}
             </Drawer.Screen>
-            <Drawer.Screen name="GameText">
+            <Drawer.Screen name="Guess the Word">
               {(props) => <GameText {...props} wordList={wordList} />}
             </Drawer.Screen>
           </Drawer.Navigator>
