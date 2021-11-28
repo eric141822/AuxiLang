@@ -8,7 +8,6 @@ import {
   Paragraph,
 } from "react-native-paper";
 import Modal from "react-native-modal";
-import { AuthContext } from "../util/context";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
@@ -41,7 +40,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           }}
         >
           <Card style={styles.infoPanel}>
-            <Card.Title title="Info" />
+            <Card.Title title="Auxi's Tips:" />
             <Card.Content>
               <Paragraph>Select the game you want to play below!</Paragraph>
               <Paragraph>
@@ -88,15 +87,7 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
         }}
         colors={["#F57F11", "#C92828"]}
       />
-      {/* <Button
-        title="test"
-        onPress={() => {
-          //   console.log(wordList[0]);
-          wordList[0].error++;
-          wordList[1].error += 2;
-          wordList[99].error += 99;
-        }}
-      /> */}
+
       <View style={styles.row}>
         <View style={styles.gamePanel}>
           <Image
@@ -153,15 +144,6 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
           />
         </View>
       </View>
-      {/* <View style={{ ...styles.row, marginTop: 30 }}>
-        <Button
-          title="Sign Out"
-          buttonStyle={{ width: 300, borderRadius: 30 }}
-          onPress={() => {
-            signOut();
-          }}
-        />
-      </View> */}
       {renderInfoModal()}
     </View>
   );

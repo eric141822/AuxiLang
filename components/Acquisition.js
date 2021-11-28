@@ -7,10 +7,7 @@ import {
   Image,
 } from "react-native";
 import {
-  randomWord,
-  questionAcq,
   getQuestionAcqIntro,
-  getQuestionAcqHard,
   getQuestionAcqIntroOnlyError,
 } from "../util/utils";
 import { Button } from "react-native-elements";
@@ -57,7 +54,7 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
           }}
         >
           <Card>
-            <Card.Title title="Info" />
+            <Card.Title title="Auxi's Tips:" />
             <Card.Content>
               <Paragraph>
                 To win: Select the missing letter using the letters below.
@@ -213,7 +210,16 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
       </View>
       {renderModal()}
       {renderInfoModal()}
-      <Text style={styles.hintText}>Hint: {question.hint}</Text>
+      <View
+        style={{
+          flexWrap: "wrap",
+          alignItems: "flex-start",
+          padding: 10,
+          backgroundColor: "lightgrey",
+        }}
+      >
+        <Text style={styles.hintText}>Hint: {question.hint}</Text>
+      </View>
       {renderKeyBoard()}
       {/* </ImageBackground> */}
     </View>
@@ -283,7 +289,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   hintText: {
-    fontStyle: "italic",
+    fontSize: 18,
+    fontWeight: "500",
   },
 });
 

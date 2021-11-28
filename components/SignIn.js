@@ -63,48 +63,74 @@ const SignIn = ({ navigation }) => {
         }}
         colors={["#F57F11", "#C92828"]}
       /> */}
-      <View
+      <ImageBackground
+        source={require("../assets/Logos/Background.png")}
+        resizeMode="cover"
         style={{
+          flex: 1,
+          // backgroundColor: "orange",
           alignItems: "center",
           justifyContent: "center",
-          marginBottom: 30,
+          width: "100%",
         }}
       >
-        <Image
-          style={{ resizeMode: "contain", height: 175, width: 175 }}
-          source={require("../assets/Logos/Logo.png")}
-        />
-      </View>
-      <View style={styles.inputContainer}>
-        <Text>Username</Text>
-        <TextInput
-          style={styles.textInput}
-          onChangeText={(val) => textInputChange(val)}
-          placeholder="Username"
-          autoCapitalize="none"
-        />
-      </View>
-
-      <View style={styles.inputContainer}>
-        <Text>Password</Text>
-        <TextInput
-          style={styles.textInput}
-          secureTextEntry={true}
-          onChangeText={(val) => handlePasswordChange(val)}
-          placeholder="Password"
-          autoCapitalize="none"
-        />
-      </View>
-
-      <View style={styles.button}>
-        <Button
-          buttonStyle={{ width: 300, borderRadius: 30 }}
-          title="LOGIN"
-          onPress={() => {
-            loginHandle(data.username, data.password);
+        <View
+          style={{
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: 30,
           }}
-        />
-      </View>
+        >
+          <Image
+            style={{
+              resizeMode: "contain",
+              height: 175,
+              width: 175,
+              marginBottom: 100,
+            }}
+            source={require("../assets/Logos/Logo.png")}
+          />
+        </View>
+        <View
+          style={{
+            paddingBottom: 100,
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <View style={styles.inputContainer}>
+            <Text>Username</Text>
+            <TextInput
+              style={styles.textInput}
+              onChangeText={(val) => textInputChange(val)}
+              placeholder="Username"
+              autoCapitalize="none"
+            />
+          </View>
+
+          <View style={styles.inputContainer}>
+            <Text>Password</Text>
+            <TextInput
+              style={styles.textInput}
+              secureTextEntry={true}
+              onChangeText={(val) => handlePasswordChange(val)}
+              placeholder="Password"
+              autoCapitalize="none"
+            />
+          </View>
+
+          <View style={styles.button}>
+            <Button
+              buttonStyle={{ width: 300, borderRadius: 30 }}
+              title="LOGIN"
+              onPress={() => {
+                loginHandle(data.username, data.password);
+              }}
+            />
+          </View>
+        </View>
+      </ImageBackground>
     </View>
   );
 };

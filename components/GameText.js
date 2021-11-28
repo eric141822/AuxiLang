@@ -97,7 +97,7 @@ const GamePicture = ({ navigation, wordList }) => {
           }}
         >
           <Card>
-            <Card.Title title="Info" />
+            <Card.Title title="Auxi's Tips" />
             <Card.Content>
               <Paragraph>
                 To win: Select the word that matches the given picture!
