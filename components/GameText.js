@@ -62,7 +62,6 @@ const GamePicture = ({ navigation, wordList }) => {
       setScore(score + 1);
     } else {
       wrongAns();
-      setScore(score - 1);
       wordList = wordList.map((i) =>
         i.word.toLowerCase() === item.word.toLowerCase()
           ? { ...i, error: i.error++ }
