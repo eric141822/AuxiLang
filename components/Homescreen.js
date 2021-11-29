@@ -28,7 +28,6 @@ const Homescreen = ({ navigation, wordList, isStore, setStore }) => {
         </View>
       ),
     });
-    //console.log(isStore);
   }, [isStore, info]);
 
   const renderInfoModal = () => {
