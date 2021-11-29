@@ -52,7 +52,6 @@ export const getPictures = function () {
       var index = Math.floor(Math.random() * copy.length);
       var item = copy[index];
       copy.splice(index, 1);
-      //   console.log(index);
       return item;
     };
   }
@@ -61,7 +60,6 @@ export const getPictures = function () {
   for (let i = 0; i < 4; i++) {
     pics.push(chooser());
   }
-  //   console.log(pics);
   return pics;
 };
 

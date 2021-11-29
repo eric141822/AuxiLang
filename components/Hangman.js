@@ -2,9 +2,7 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  TextInput,
   View,
-  Button,
   TouchableHighlight,
   Alert,
   Image,
@@ -13,7 +11,6 @@ import {
   getQuestionHangmanIntro,
   getQuestionHangmanIntroOnlyError,
 } from "../util/utils";
-import { Puzzles } from "../assets/puzzles/index";
 import { LinearGradient } from "expo-linear-gradient";
 
 import {
@@ -47,8 +44,6 @@ class HangmanGame extends React.Component {
     };
     this.init = this.init.bind(this);
     this.setInfoPanel = this.setInfoPanel.bind(this);
-    // this.renderInfoModal = this.renderInfoModal.bind(this);
-    // this.puzzles = new Puzzles();
   }
   componentDidMount() {
     this.init();
@@ -118,12 +113,9 @@ class HangmanGame extends React.Component {
     );
   }
   init() {
-    // console.log(this.props.navigation);
-    // let puzzle = this.puzzles.getRandom();
     let puzzle = this.props.isStore
       ? getQuestionHangmanIntro(this.props.wordList)
       : getQuestionHangmanIntroOnlyError(this.props.wordList);
-    // let puzzle = tmp[(Math.random() * tmp.length) | 0];
     let answer = puzzle.word.replace(/[^a-zA-Z]/gim, " ").trim();
     let hint = puzzle.definition;
     let lettersLeft = Array(answer.length);
@@ -159,7 +151,6 @@ class HangmanGame extends React.Component {
           if (value == letter) {
             lettersLeft[index] = letter;
             correct++;
-            
           }
         });
     }

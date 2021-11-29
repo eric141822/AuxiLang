@@ -23,21 +23,17 @@ import { getPictures } from "../util/utils";
 const wrongAns = () =>
   Alert.alert("Wrong Answer", "Please try again!", [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
+      text: "OK",
       style: "cancel",
     },
-    { text: "OK", onPress: () => console.log("OK Pressed") },
   ]);
 
 const correctAns = () =>
   Alert.alert("Correct Answer", "Nice job!", [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
+      text: "OK",
       style: "cancel",
     },
-    { text: "OK", onPress: () => console.log("OK Pressed") },
   ]);
 
 const getAnswerIdx = () => {
@@ -51,7 +47,6 @@ const GamePicture = ({ navigation, wordList }) => {
   const [score, setScore] = useState(0);
 
   const validate = (item) => {
-    // console.log(item.word);
     if (item.word === pics[answer].word) {
       correctAns();
       setPics(getPictures());

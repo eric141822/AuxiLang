@@ -57,8 +57,6 @@ export default function App() {
   const authContext = useMemo(
     () => ({
       signIn: async (userName, password) => {
-        // setUserToken("admin");
-        // setIsLoading(false);
         let userToken = null;
 
         if (userName === "admin" && password === "admin") {
@@ -69,9 +67,6 @@ export default function App() {
             console.log(e);
           }
         }
-        // console.log(userName);
-        // console.log(password);
-        // console.log("Token: " + userToken);
         dispatch({ type: "LOGIN", id: userName, token: userToken });
       },
       signOut: async () => {

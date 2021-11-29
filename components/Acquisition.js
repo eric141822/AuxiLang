@@ -29,7 +29,6 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
   const [score, setScore] = useState(0);
   const [info, setInfo] = useState(false);
   useEffect(() => {
-    // console.log(isStore);
     navigation.setOptions({
       headerRight: () => (
         <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -93,16 +92,11 @@ const Acquisition = ({ wordList, navigation, isStore }) => {
       setQuestion({ ...question, q: [...question.word] });
       setScore(score + 1);
       setIsWin(true);
-      //   if (score >= global.acq_highscore) {
-      //     global.acq_highscore = score;
-      //   }
-      //   console.log(global.acq_highscore);
     }
   };
 
   const nextQuestion = function () {
     setIsWin(false);
-    // setQuestion(questionAcq(randomWord()));
     if (isStore) {
       setQuestion(getQuestionAcqIntro(wordList));
     } else {
