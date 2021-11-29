@@ -4,13 +4,10 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
   TouchableOpacity,
-  Button,
   Image,
   FlatList,
   Alert,
-  SafeAreaView,
 } from "react-native";
 import {
   IconButton,

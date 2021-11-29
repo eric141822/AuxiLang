@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Button, Image } from "react-native-elements";
 import { AuthContext } from "../util/context";
-import { LinearGradient } from "expo-linear-gradient";
 
 const SignIn = ({ navigation }) => {
   const [data, setData] = React.useState({
