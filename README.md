@@ -14,18 +14,6 @@ Checkout to the designated branches via `git checkout <branchName>` or in anyway
 
 Then, run:
 
-`yarn install`
+`yarn`
 
 `yarn start` or `expo start`
-
-## To Do
-
-Type your name after the game you want to develop first: (e.g. Hang-man: Eric, Brian)...
-
-Crosswords:
-
-Hang-man:
-
-Alphabet Acquisition: Eric (Basic functions and design done)
-
-Dictionary and Flashcards page: Eric (Basics done, need to add flashcard functions)
